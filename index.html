@@ -234,7 +234,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-03-11 21:00:31 / 修改时间：22:46:32" itemprop="dateCreated datePublished" datetime="2020-03-11T21:00:31+08:00">2020-03-11</time>
+              <time title="创建时间：2020-03-11 21:00:31 / 修改时间：23:06:28" itemprop="dateCreated datePublished" datetime="2020-03-11T21:00:31+08:00">2020-03-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -260,7 +260,21 @@
     </a>
   </span>
   
-  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -272,36 +286,15 @@
 
       
           <h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1.准备工作"></a>1.准备工作</h2><p>在开始一切之前<br>    1.1需要一个github账号，没有的话去注册一个；<br>    1.2安装<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">Git</a><br>    1.3安装<a href="https://nodejs.org/en/" target="_blank" rel="noopener">nodejs</a></p>
-<h2 id="2-创建github仓库"><a href="#2-创建github仓库" class="headerlink" title="2.创建github仓库"></a>2.创建github仓库</h2><p>新建一个名为你的用户名.github.io的仓库，比如说，如果你的github用户名是test，那么你就新建test.github.io的仓库（必须是你的用户名，其它名称无效），将来你的网站访问地址就是<a href="http://test.github.io了" target="_blank" rel="noopener">http://test.github.io了</a><br><img src="/2020/03/11/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%85%A8%E8%BF%87%E7%A8%8B/CreateLib.JPG" alt="创建github仓库"><br>因为每一个github账户最多只能创建一个这样可以直接使用域名访问的仓库，我之前已经创建过了。</p>
-<h2 id="3-配置SSH-key"><a href="#3-配置SSH-key" class="headerlink" title="3.配置SSH key"></a>3.配置SSH key</h2><p>因为你提交代码肯定要拥有你的github权限才可以，但是直接使用用户名和密码太不安全了，所以我们使用ssh key来解决本地和服务器的连接问题。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~&#x2F;. ssh #检查本机已存在的ssh密钥</span><br></pre></td></tr></table></figure>
-<p>如果提示：No such file or directory 说明你是第一次使用git。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;邮件地址&quot;</span><br></pre></td></tr></table></figure>
-<p>然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置-&gt;SSH and GPG keys-&gt;New SSH key;将刚复制的内容粘贴到key那里，title随便填，保存。</p>
-<h2 id="4-使用hexo搭建个人博客"><a href="#4-使用hexo搭建个人博客" class="headerlink" title="4.使用hexo搭建个人博客"></a>4.使用hexo搭建个人博客</h2><h3 id="4-1安装之前说几个注意事项："><a href="#4-1安装之前说几个注意事项：" class="headerlink" title="4.1安装之前说几个注意事项："></a>4.1安装之前说几个注意事项：</h3><pre><code>很多命令既可以用Windows的cmd来完成，也可以使用git bash来完成，但是部分命令会有一些问题，为避免不必要的问题，建议全部使用git bash来执行；
-hexo有2种`_config.yml`文件，一个是根目录下的全局的`_config.yml`，一个是各个theme下的；</code></pre><h3 id="4-2安装hexo"><a href="#4-2安装hexo" class="headerlink" title="4.2安装hexo"></a>4.2安装hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<h3 id="4-3创建博客文件夹"><a href="#4-3创建博客文件夹" class="headerlink" title="4.3创建博客文件夹"></a>4.3创建博客文件夹</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;你的文件夹名字&gt; #如 hexo init thexwen</span><br></pre></td></tr></table></figure>
-<p>注意:他会在你命令当前路径下创建一个文件夹，这个文件夹将来就作为你存放代码的地方，所以最好不要随便放。</p>
-<h3 id="4-4初始化文件夹"><a href="#4-4初始化文件夹" class="headerlink" title="4.4初始化文件夹"></a>4.4初始化文件夹</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd &lt;folder&gt; #进入你的博客文件夹</span><br><span class="line">$ npm install #初始化文件夹</span><br></pre></td></tr></table></figure>
-<p>初始化后，您的项目文件夹将如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
-<h3 id="4-5编写第一篇博客"><a href="#4-5编写第一篇博客" class="headerlink" title="4.5编写第一篇博客"></a>4.5编写第一篇博客</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &quot;你的博客名称&quot;</span><br></pre></td></tr></table></figure>
-<p>执行上面命令，在你的…\source_posts下会生产一个.md文件，打开文件就可以编写你的博客</p>
-<h3 id="4-6访问你的博客"><a href="#4-6访问你的博客" class="headerlink" title="4.6访问你的博客"></a>4.6访问你的博客</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate #生成静态文件</span><br><span class="line">$ hexo server	#启动本地服务器。默认情况下，该位置为http:&#x2F;&#x2F;localhost:4000&#x2F;</span><br></pre></td></tr></table></figure>
-<p>执行上面两条命令，打开浏览器访问 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 即可看到内容，第一次初始化的时候hexo已经帮我们写了一篇名为 Hello World 的文章，默认的主题比较丑。<br><img src="/2020/03/11/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%85%A8%E8%BF%87%E7%A8%8B/BlogSite.png" alt="博客站点"></p>
-<h2 id="5-部署到github"><a href="#5-部署到github" class="headerlink" title="5.部署到github"></a>5.部署到github</h2><p>如果你一切都配置好了，发布上传很容易，一句命令就搞定，当然关键还是你要把所有东西配置好。<br>首先，ssh key肯定要配置好。<br>其次，配置_config.yml中有关deploy的部分</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">	type: git</span><br><span class="line">	repo: https:&#x2F;&#x2F;github.com&#x2F;你的github名称&#x2F;你的github名称.github.io.git #如https:&#x2F;&#x2F;github.com&#x2F;TheXWen&#x2F;thexwen.github.io.git</span><br><span class="line">	branch: master</span><br></pre></td></tr></table></figure>
-<p>另外我们还需要额外安装一个支持 Git 的部署插件，名字叫做 hexo-deployer-git，有了它我们才可以顺利将其部署到 GitHub 上面，如果不安装的话，在执行部署命令时会报如下错误：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Deployer not found: git</span><br></pre></td></tr></table></figure>
-<p>在项目目录下执行安装命令如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>安装成功之后，执行部署命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-<p>这时候我们访问一下 GitHub Repository 同名的链接，比如我的 thexwen 博客的 Repository 名称取的是 thexwen.github.io，那我就访问 <a href="http://thexwen.github.io，这时候我们就可以看到跟本地一模一样的博客内容了。" target="_blank" rel="noopener">http://thexwen.github.io，这时候我们就可以看到跟本地一模一样的博客内容了。</a></p>
-<h2 id="6-配置站点信息"><a href="#6-配置站点信息" class="headerlink" title="6.配置站点信息"></a>6.配置站点信息</h2><p>完成如上内容之后，实际上我们只完成了博客搭建的一小步，因为我们仅仅是把初始化的页面部署成功了，博客里面还没有设置任何有效的信息.<br>修改根目录下的 _config.yml 文件，找到 Site 区域，这里面可以配置站点标题 title、副标题 subtitle 等内容、关键字 keywords 等内容，比如我的就修改为如下内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: xw&#39;s Blog #标题</span><br><span class="line">subtitle: 记录,分享 #副标题</span><br><span class="line">description: make an all-out effort #描述</span><br><span class="line">keywords: &quot;java,问题,个人&quot; #关键字</span><br><span class="line">author: xw #作者</span><br><span class="line">language: zh-CN #中文</span><br><span class="line">timezone: &#39;&#39; #时区</span><br></pre></td></tr></table></figure>
-<p>以上就是从零简单搭建一个 Hexo 博客的流程，希望对大家有帮助。</p>
-
+<h2 id="2-创建github仓库"><a href="#2-创建github仓库" class="headerlink" title="2.创建github仓库"></a>2.创建github仓库</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/11/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%85%A8%E8%BF%87%E7%A8%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -371,7 +364,21 @@ hexo有2种`_config.yml`文件，一个是根目录下的全局的`_config.yml`�
     </a>
   </span>
   
-  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>96</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -444,7 +451,21 @@ hexo有2种`_config.yml`文件，一个是根目录下的全局的`_config.yml`�
     </a>
   </span>
   
-  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>16</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -516,7 +537,21 @@ hexo有2种`_config.yml`文件，一个是根目录下的全局的`_config.yml`�
     </a>
   </span>
   
-  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>357</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -679,6 +714,18 @@ hexo有2种`_config.yml`文件，一个是根目录下的全局的`_config.yml`�
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">xw</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">3k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">2 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
   </div>
@@ -687,6 +734,26 @@ hexo有2种`_config.yml`文件，一个是根目录下的全局的`_config.yml`�
   </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
