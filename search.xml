@@ -38,7 +38,9 @@ hexo有2种`_config.yml`文件，一个是根目录下的全局的`_config.yml`�
         <category>hexo博客</category>
       </categories>
       <tags>
-        <tag>博客,Hexo,Next</tag>
+        <tag>博客</tag>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
       </tags>
   </entry>
   <entry>
