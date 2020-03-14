@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>外部引入js文件不生效解决方法</title>
+    <url>/2020/03/14/%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5js%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>今天写项目的时候，有用到js，本来是代码是直接写在<script type="text/javascript"></script>里面的，但是<br>突然想将它分离，通过外部引入。但是引入后发现不生效，于是去找资料。大多数都是说加上<code>window.οnlοad=function(){}</code><br>将代码放在里面就可以了，但是我试了一下好像不行。最后发现原来js在文件内部是不用<code>$(function(){})</code>也能自动执行。<br>而在外部加载时，由于没有<code>$(function(){})</code>就不执行了。于是在js最头部加上$(function(){})，问题解决.</p>
+]]></content>
+      <categories>
+        <category>问题</category>
+      </categories>
+      <tags>
+        <tag>问题</tag>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>我的博客搭建全过程(1)</title>
     <url>/2020/03/11/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%85%A8%E8%BF%87%E7%A8%8B/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1.准备工作"></a>1.准备工作</h2><p>在开始一切之前<br>    1.1需要一个github账号，没有的话去注册一个；<br>    1.2安装<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">Git</a><br>    1.3安装<a href="https://nodejs.org/en/" target="_blank" rel="noopener">nodejs</a></p>
