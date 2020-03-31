@@ -39,7 +39,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://thexwen.github.io/2020/03/24/%E8%B0%83%E7%94%A8Gitee-Github-API%E5%AE%9E%E7%8E%B0%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B/NewGiteeOAuthApp.JPG">
 <meta property="article:published_time" content="2020-03-24T12:00:54.000Z">
-<meta property="article:modified_time" content="2020-03-24T14:10:39.499Z">
+<meta property="article:modified_time" content="2020-03-24T14:16:43.938Z">
 <meta property="article:author" content="xw">
 <meta property="article:tag" content="API">
 <meta property="article:tag" content="Github">
@@ -152,7 +152,7 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">11</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">13</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -162,7 +162,7 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">9</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">10</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -243,7 +243,7 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-03-24 20:00:54 / 修改时间：22:10:39" itemprop="dateCreated datePublished" datetime="2020-03-24T20:00:54+08:00">2020-03-24</time>
+              <time title="创建时间：2020-03-24 20:00:54 / 修改时间：22:16:43" itemprop="dateCreated datePublished" datetime="2020-03-24T20:00:54+08:00">2020-03-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -282,7 +282,7 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.7k</span>
+              <span>4.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -313,7 +313,7 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
 <h3 id="4-2-新建一个控制器类"><a href="#4-2-新建一个控制器类" class="headerlink" title="4.2 新建一个控制器类"></a>4.2 新建一个控制器类</h3><p>发送Git请求获取code码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">	@Autowired</span><br><span class="line">    private GithubProvider githubProvider;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private AuthorizeService authorizeService;</span><br><span class="line"></span><br><span class="line">    @Value(&quot;你的clientId&quot;)</span><br><span class="line">    private String clientId;</span><br><span class="line"></span><br><span class="line">    @Value(&quot;你的clientSecret&quot;)</span><br><span class="line">    private String clientSecret;</span><br><span class="line"></span><br><span class="line">    @Value(&quot;你的回调地址&quot;)</span><br><span class="line">    private String redirectUri;</span><br><span class="line"></span><br><span class="line">@GetMapping(&quot;&#x2F;callback&quot;)</span><br><span class="line">    public String callback(@RequestParam(name &#x3D; &quot;code&quot;) String code,</span><br><span class="line">                           HttpServletResponse response)&#123;&#x2F;&#x2F;@RequestParam(name &#x3D; &quot;state&quot;) String state, Github需要这个参数</span><br><span class="line">        AccessTokenDTO accessTokenDTO &#x3D; new AccessTokenDTO();</span><br><span class="line">        accessTokenDTO.setClient_id(clientId);</span><br><span class="line">        accessTokenDTO.setClient_secret(clientSecret);</span><br><span class="line">        accessTokenDTO.setCode(code);</span><br><span class="line">        accessTokenDTO.setRedirect_uri(redirectUri);</span><br><span class="line">        accessTokenDTO.setGrant_type(&quot;authorization_code&quot;);&#x2F;&#x2F;Gitee需要这个参数</span><br><span class="line">        &#x2F;&#x2F;accessTokenDTO.setState(state); &#x2F;&#x2F;Github需要这个参数</span><br><span class="line">        String accessToken &#x3D; githubProvider.getAccessToken(accessTokenDTO);&#x2F;&#x2F;获取token方法</span><br><span class="line">        GithubUser githubUser &#x3D; githubProvider.getUser(accessToken);	&#x2F;&#x2F;获取User信息方法</span><br><span class="line">        if (githubUser !&#x3D; null &amp;&amp; githubUser.getId() !&#x3D; null)&#123;			&#x2F;&#x2F;如果不为空，插入数据库</span><br><span class="line">            User user &#x3D; new User();</span><br><span class="line">            String token &#x3D; UUID.randomUUID().toString();</span><br><span class="line">            user.setName(githubUser.getName());</span><br><span class="line">            user.setToken(token);</span><br><span class="line">            user.setAccountId(githubUser.getId());</span><br><span class="line">            user.setAvatarUrl(githubUser.getAvatar_url());</span><br><span class="line">            authorizeService.insertUser(user);</span><br><span class="line">            response.addCookie(new Cookie(&quot;token&quot;, token));			&#x2F;&#x2F;添加cookie</span><br><span class="line">            return &quot;redirect:&#x2F;&quot;;									&#x2F;&#x2F;返回主页</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            &#x2F;&#x2F;登录失败，重新登录</span><br><span class="line">            return &quot;redirect:&#x2F;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <h3 id="4-3-新建一个类，写获取token的方法和获取User信息的方法"><a href="#4-3-新建一个类，写获取token的方法和获取User信息的方法" class="headerlink" title="4.3 新建一个类，写获取token的方法和获取User信息的方法"></a>4.3 新建一个类，写获取token的方法和获取User信息的方法</h3><p>携带参数发送POST请求获取token<br>获取token的方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public String getAccessToken(AccessTokenDTO accessTokenDTO)&#123;</span><br><span class="line">	MediaType mediaType &#x3D; MediaType.get(&quot;application&#x2F;json; charset&#x3D;utf-8&quot;);</span><br><span class="line">	OkHttpClient client &#x3D; new OkHttpClient();</span><br><span class="line"></span><br><span class="line">	RequestBody body &#x3D; RequestBody.create(mediaType, JSON.toJSONString(accessTokenDTO));</span><br><span class="line">	Request request &#x3D; new Request.Builder()</span><br><span class="line">			.url(&quot;https:&#x2F;&#x2F;gitee.com&#x2F;oauth&#x2F;token&quot;)&#x2F;&#x2F;https:&#x2F;&#x2F;github.com&#x2F;login&#x2F;oauth&#x2F;access_token</span><br><span class="line">			.post(body)</span><br><span class="line">			.build();</span><br><span class="line">	try (Response response &#x3D; client.newCall(request).execute()) &#123;</span><br><span class="line">		String string &#x3D; response.body().string();</span><br><span class="line">		JSONObject jsonObject  &#x3D; JSONObject.parseObject(string);</span><br><span class="line">		String token &#x3D; jsonObject.getString(&quot;access_token&quot;);&#x2F;&#x2F;String token &#x3D; string.split(&quot;&amp;&quot;)[0].split(&quot;&#x3D;&quot;)[1]; &#x2F;&#x2F;这里Github和Gitee不同，Github返回的是一个地址，Gitee返回的是json串。</span><br><span class="line">		return token;</span><br><span class="line">	&#125; catch (Exception e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	return null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public String getAccessToken(AccessTokenDTO accessTokenDTO)&#123;</span><br><span class="line">	MediaType mediaType &#x3D; MediaType.get(&quot;application&#x2F;json; charset&#x3D;utf-8&quot;);</span><br><span class="line">	OkHttpClient client &#x3D; new OkHttpClient();</span><br><span class="line"></span><br><span class="line">	RequestBody body &#x3D; RequestBody.create(mediaType, JSON.toJSONString(accessTokenDTO));</span><br><span class="line">	Request request &#x3D; new Request.Builder()</span><br><span class="line">			.url(&quot;https:&#x2F;&#x2F;gitee.com&#x2F;oauth&#x2F;token&quot;)&#x2F;&#x2F;https:&#x2F;&#x2F;github.com&#x2F;login&#x2F;oauth&#x2F;access_token</span><br><span class="line">			.post(body)</span><br><span class="line">			.build();</span><br><span class="line">	try (Response response &#x3D; client.newCall(request).execute()) &#123;</span><br><span class="line">		String string &#x3D; response.body().string();</span><br><span class="line">		JSONObject jsonObject  &#x3D; JSONObject.parseObject(string); &#x2F;&#x2F;将String转换为json串</span><br><span class="line">		String token &#x3D; jsonObject.getString(&quot;access_token&quot;); &#x2F;&#x2F;获取json串中key为access_token的值</span><br><span class="line">		&#x2F;&#x2F;String token &#x3D; string.split(&quot;&amp;&quot;)[0].split(&quot;&#x3D;&quot;)[1];&#x2F;&#x2F;这里Github和Gitee不同，Github返回的是一个地址，Gitee返回的是json串。</span><br><span class="line">		return token;</span><br><span class="line">	&#125; catch (Exception e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	return null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>使用token获取用户数据<br>获取User信息的方法</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public GithubUser getUser(String accessToken)&#123;</span><br><span class="line">	OkHttpClient client &#x3D; new OkHttpClient();</span><br><span class="line">	Request request &#x3D; new Request.Builder()</span><br><span class="line">			.url(&quot;https:&#x2F;&#x2F;gitee.com&#x2F;api&#x2F;v5&#x2F;user?access_token&#x3D;&quot; + accessToken)&#x2F;&#x2F;https:&#x2F;&#x2F;api.github.com&#x2F;user?access_token&#x3D;</span><br><span class="line">			.build();</span><br><span class="line">	try &#123;</span><br><span class="line">		Response response &#x3D; client.newCall(request).execute();</span><br><span class="line">		String string &#x3D; response.body().string();</span><br><span class="line">		GithubUser githubUser &#x3D; JSON.parseObject(string, GithubUser.class);</span><br><span class="line">		return githubUser;</span><br><span class="line">	&#125; catch (IOException e) &#123;</span><br><span class="line">	&#125;</span><br><span class="line">	return null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>以上就是调用Gitee/Github API实现第三方登录流程</p>
@@ -359,7 +359,10 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
     <a href="/2020/03/24/jQuery%E5%8A%A8%E6%80%81%E7%94%9F%E6%88%90%E7%9A%84%E5%85%83%E7%B4%A0%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6/" rel="prev" title="jQuery动态生成的元素绑定事件">
       <i class="fa fa-chevron-left"></i> jQuery动态生成的元素绑定事件
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/31/Spring-Boot%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91OSS%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" rel="next" title="Spring Boot使用阿里云OSS实现图片上传">
+      Spring Boot使用阿里云OSS实现图片上传 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -436,7 +439,7 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -449,7 +452,7 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -496,13 +499,13 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">10k</span>
+    <span title="站点总字数">11k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">9 分钟</span>
+    <span title="站点阅读时长">10 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
   </div>
