@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>常见Java面试题</title>
+    <title>常见Java面试题(一)</title>
     <url>/2020/05/10/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="面向对象的特征有哪些"><a href="#面向对象的特征有哪些" class="headerlink" title="面向对象的特征有哪些"></a>面向对象的特征有哪些</h2><p>面向对象有四大基本特征:封装、抽象、继承、多态</p>
 <h3 id="抽象"><a href="#抽象" class="headerlink" title="抽象"></a>抽象</h3><p>抽象就是找出一些事物的相似和共性之处，然后将这些事物归为一个类。 就是把现实生活中的对象，抽象为类。</p>
+<a id="more"></a>
 <h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>封装就是将对象封装成一个高度自治和相对封闭的个体，对象属性由这个对象自己的方法来读取和改变。<br>如：一个人，他的姓名等属性，要有自己提供的get和set的方法来操作。private naame setName getNme </p>
 <h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>在定义和实现一个类的时候，可以在一个已经存在的类的基础之上来进行，把这个已经存在的类所定义的内容作为自己的内容，并可以加入若干新的内容，或修改原来的方法使之更适合特殊的需要，这就是继承。</p>
 <h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>多态是指程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用在编程时并不确定，而是在程序运行期间才确定，即一个引用变量倒底会指向哪个类的实例对象，该引用变量发出的方法调用到底是哪个类中实现的方法，必须在由程序运行期间才能决定。接口的多种不同的实现方式就是多态。</p>
-<a id="more"></a>
 <h2 id="有了基本数据类型，为什么还需要包装类型"><a href="#有了基本数据类型，为什么还需要包装类型" class="headerlink" title="有了基本数据类型，为什么还需要包装类型"></a>有了基本数据类型，为什么还需要包装类型</h2><p>Java是一个面相对象的编程语言，而基本数据类型并不具有对象的性质，为了让基本类型也具有对象的特征，就出现了包装类型，它相当于将基本类型“包装起来”，使得它具有了对象的性质，并且为其添加了属性和方法，丰富了基本类型的操作。</p>
 <h2 id="“-”和equals有什么区别"><a href="#“-”和equals有什么区别" class="headerlink" title="“==”和equals有什么区别"></a>“==”和equals有什么区别</h2><p>首先数据的表示有基本类型和引用类型。<br>==   基本类型比较值是否相同<br>　　 引用类型比较的是地址是否相同<br>equals()<br>　　只能比较引用类型，默认情况下比较的是地址值是否相同。<br>    但在一些类中重写了这个方法，如包装类,String,Date等，equals()比较的是两个变量的值。</p>
 <h2 id="String、StringBuilder、StringBuffer的区别"><a href="#String、StringBuilder、StringBuffer的区别" class="headerlink" title="String、StringBuilder、StringBuffer的区别"></a>String、StringBuilder、StringBuffer的区别</h2><p>1.String是内容不可变的字符串。String底层使用了一个不可变的字符数组(final char[])<br>而StringBuillder StringBuffer,是内容可以改变的字符串。StringBuillder StringBuffer底层使用的可变的字符数组（没有使用final来修饰）<br>2.最经典就是拼接字符串。<br>String进行拼接.<code>String str = &quot;a&quot; + &quot;b&quot;;</code><br>StringBuilder或者StringBuffer<br><code>StringBuilder sb = new StringBuilder(); sb.apend(&quot;a&quot;).apend(&quot;b&quot;)</code><br>拼接字符串不能使用String进行拼接，要使用StringBuilder或者StringBuffer<br>3.StringBuilder是线程不安全的，效率较高.而StringBuffer是线程安全的，效率较低。</p>
@@ -29,6 +29,21 @@
 <h2 id="线程池的作用"><a href="#线程池的作用" class="headerlink" title="线程池的作用"></a>线程池的作用</h2><p>1、限定线程的个数，不会导致由于线程过多导致系统运行缓慢或崩溃<br>2、线程池不需要每次都去创建或销毁，节约了资源、<br>3、线程池不需要每次都去创建，响应时间更快。</p>
 <h2 id="常用的设计模式有哪些"><a href="#常用的设计模式有哪些" class="headerlink" title="常用的设计模式有哪些"></a>常用的设计模式有哪些</h2><p>单例(懒汉模式、饿汉模式)<br>1、构造方法私有化，除了自己类中能创建外其他地方都不能创建<br>2、在自己的类中创建一个单实例（饿汉模式是类加载就创建单实例，而懒汉模式是第一次被使用的时候才创建）<br>3、提供一个方法获取该实例对象(创建时需要进行方法同步)<br>工厂模式:Spring IOC就是使用了工厂模式.对象的创建交给一个工厂去创建。<br>代理模式:Spring AOP就是使用的动态代理。</p>
 <h2 id="Synchronized修饰静态方法和非静态方法有什么区别"><a href="#Synchronized修饰静态方法和非静态方法有什么区别" class="headerlink" title="Synchronized修饰静态方法和非静态方法有什么区别"></a>Synchronized修饰静态方法和非静态方法有什么区别</h2><p>修饰非静态方法，实际上是对调用该方法的对象加锁，俗称“对象锁”。<br>修饰静态方法，实际上是对该类对象加锁，俗称“类锁”。</p>
+<h2 id="Synchronized和ReentrantLock的区别"><a href="#Synchronized和ReentrantLock的区别" class="headerlink" title="Synchronized和ReentrantLock的区别"></a>Synchronized和ReentrantLock的区别</h2><p>两者的共同点：<br>可重入，同一线程可以多次获得同一个锁<br>两者的不同点：<br>ReentrantLock手动开启、释放锁，synchronized隐式开启释放锁<br>ReentrantLock可响应中断、可轮回，synchronized是不可以响应中断的，为处理锁的不可用性提供了更高的灵活性<br>ReentrantLock 依赖于 API，而synchronized依赖于JVM<br>ReentrantLock可以实现公平锁<br>ReentrantLock通过Condition可以绑定多个条件</p>
+<h2 id="Java多线程公平锁与非公平锁"><a href="#Java多线程公平锁与非公平锁" class="headerlink" title="Java多线程公平锁与非公平锁"></a>Java多线程公平锁与非公平锁</h2><p>公平锁：加锁前检查是否有排队等待的线程，优先排队等待的线程，先来先得<br>非公平锁：加锁时不考虑排队等待问题，直接尝试获取锁，获取不到自动到队尾等待</p>
+<h2 id="Java可重入锁与不可重入锁"><a href="#Java可重入锁与不可重入锁" class="headerlink" title="Java可重入锁与不可重入锁"></a>Java可重入锁与不可重入锁</h2><p>所谓重入锁，指的是以线程为单位，当一个线程获取对象锁之后，这个线程可以再次获取本对象上的锁</p>
+<h2 id="乐观锁与悲观锁"><a href="#乐观锁与悲观锁" class="headerlink" title="乐观锁与悲观锁"></a>乐观锁与悲观锁</h2><p>悲观锁：总是假设最坏的情况，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会阻塞直到它拿到锁<br>乐观锁：总是假设最好的情况，每次去拿数据的时候都认为别人不会修改，所以不会上锁，但是在更新的时候会判断一下在此期间别人有没有去更新这个数据。</p>
+<p>##数据库事务隔离级别<br>| 隔离级别  | 脏读  | 不可重复读  | 幻读  |<br>| :————: | :————: | :————: | :————: |<br>| 读未提交  | 可能  | 可能  |  可能 |<br>|  读已提交 | 不可能  | 可能  |  可能 |<br>| 可重复读  | 不可能  | 不可能  | 可能|<br>| 可串行化  | 不可能  | 不可能  | 不可能|<br>读未提交：允许脏读，也就是可能读取到其他会话中未提交事务修改的数据<br>读已提交：只能读取到已经提交的数据。Oracle等多数数据库默认都是该级别 (不重复读)<br>可重复读：可重复读。在同一个事务内的查询都是事务开始时刻一致的，InnoDB默认级别。在SQL标准中，该隔离级别消除了不可重复读，但是还存在幻象读<br>串行读：完全串行化的读，每次读都需要获得表级共享锁，读写相互都会阻塞</p>
+<p>1.脏读: 脏读就是指当一个事务正在访问数据，并且对数据进行了修改，而这种修改还没有提交到数据库中，这时，另外一个事务也访问这个数据，然后使用了这个数据。<br>2.不可重复读:是指在一个事务内，多次读同一数据。在这个事务还没有结束时，另外一个事务也访问该同一数据。那么，在第一个事务中的两次读数据之间，由于第二个事务的修改，那么第一个事务两次读到的的数据可能是不一样的。这样就发生了在一个事务内两次读到的数据是不一样的，因此称为是不可重复读<br>3.幻读:第一个事务对一个表中的数据进行了修改，这种修改涉及到表中的全部数据行。同时，第二个事务也修改这个表中的数据，这种修改是向表中插入一行新数据。那么，以后就会发生操作第一个事务的用户发现表中还有没有修改的数据行，就好象发生了幻觉一样。</p>
+<h2 id="MySQL索引类型"><a href="#MySQL索引类型" class="headerlink" title="MySQL索引类型"></a>MySQL索引类型</h2><p> B+Tree、哈希索引、R-Tree、全文索引</p>
+<h2 id="B-Tree相对于B-Tree有几点不同"><a href="#B-Tree相对于B-Tree有几点不同" class="headerlink" title="B+Tree相对于B-Tree有几点不同"></a>B+Tree相对于B-Tree有几点不同</h2><p>1.非叶子节点是叶子节点的索引<br>2.要存储的数据都存放在叶子节点中<br>3.叶子节点之间都有一个链指针，不需要遍历整棵树就可以得到所存储的全部数据</p>
+<h2 id="MySQL执行引擎有哪些"><a href="#MySQL执行引擎有哪些" class="headerlink" title="MySQL执行引擎有哪些"></a>MySQL执行引擎有哪些</h2><p>InnoDB、MyIsam</p>
+<h2 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h2><p>缓存穿透是指查询一个一定不存在的数据，由于缓存是不命中时被动写的，并且出于容错考虑，如果从存储层查不到数据则不写入缓存，这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义。在流量大时，可能DB就挂掉了，要是有人利用不存在的key频繁攻击我们的应用，这就是漏洞。</p>
+<h2 id="排序算法有那些"><a href="#排序算法有那些" class="headerlink" title="排序算法有那些"></a>排序算法有那些</h2><p>选择排序、插入排序、冒泡排序、希尔排序、归并排序、快速排序、堆排序、基数排序、桶排序</p>
+<h2 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h2><p>200 - 请求成功<br>301 - 资源（网页等）被永久转移到其它URL<br>302 - 重定向<br>404 - 请求的资源（网页等）不存在<br>500 - 内部服务器错误</p>
+<h2 id="Session的两种实现方式"><a href="#Session的两种实现方式" class="headerlink" title="Session的两种实现方式"></a>Session的两种实现方式</h2><p>1.通过cookie<br>创建Session的时候，服务器将生成一个唯一的sessionid然后用它生成一个关闭浏览器就会失效的cookie。<br>2.url重写<br>通过cookie可以很好地实现session，但是如果客户端由于某些原因（比如出于安全考虑）而禁用cookie，在这种情况之下，为了使session能够继续生效，可以采用url重写。</p>
+<h2 id="如何解决负载均衡之后的session共享问题"><a href="#如何解决负载均衡之后的session共享问题" class="headerlink" title="如何解决负载均衡之后的session共享问题"></a>如何解决负载均衡之后的session共享问题</h2><p>1.不使用session，换作cookie<br>2.数据库记录下session信息<br>4.对session文件进行同步。</p>
+<h2 id="Mybatis一级缓存、二级缓存"><a href="#Mybatis一级缓存、二级缓存" class="headerlink" title="Mybatis一级缓存、二级缓存"></a>Mybatis一级缓存、二级缓存</h2><p>一级缓存是SqlSession级别的缓存，放在session里面，在对象中有一个数据结构（HashMap）用于存储缓存数据。<br>二级缓存是mapper级别的缓存，放在它的命名空间里</p>
 ]]></content>
       <categories>
         <category>分享</category>
@@ -145,8 +160,8 @@
       </categories>
       <tags>
         <tag>问题</tag>
-        <tag>js</tag>
         <tag>jquery</tag>
+        <tag>js</tag>
       </tags>
   </entry>
   <entry>
