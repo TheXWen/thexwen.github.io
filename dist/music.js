@@ -4,10 +4,10 @@ const ap = new APlayer({
     autoplay: false,
     audio: [
       {
-        name: "归去来兮",
-        artist: '花花一点都不甜呐',
-        url: 'http://music.163.com/song/media/outer/url?id=1371741980.mp3',
-        cover: 'http://p1.music.126.net/L3KSW6BoZBIBHtQWApttdg==/109951164768178218.jpg?param=180y180',
+        name: "理想三旬",
+        artist: '陈鸿宇',
+        url: 'http://music.163.com/song/media/outer/url?id=31445772.mp3',
+        cover: 'http://p1.music.126.net/nLD7jeWJ36sdv4mo2FHm2Q==/109951163635239467.jpg?param=180y180',
       },
       {
         name: '空山新雨后',
