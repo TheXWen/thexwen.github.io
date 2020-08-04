@@ -5,9 +5,9 @@
   <subtitle>记录,分享</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://thexwen.github.io/"/>
-  <updated>2020-06-30T06:57:22.742Z</updated>
-  <id>http://thexwen.github.io/</id>
+  <link href="https://thexwen.gitee.io/"/>
+  <updated>2020-06-30T07:21:33.548Z</updated>
+  <id>https://thexwen.gitee.io/</id>
   
   <author>
     <name>xw</name>
@@ -18,12 +18,12 @@
   
   <entry>
     <title>Android使用OkHttp发送Get和Post请求</title>
-    <link href="http://thexwen.github.io/2020/06/30/Android%E4%BD%BF%E7%94%A8OkHttp%E5%8F%91%E9%80%81Get%E5%92%8CPost%E8%AF%B7%E6%B1%82/"/>
-    <id>http://thexwen.github.io/2020/06/30/Android%E4%BD%BF%E7%94%A8OkHttp%E5%8F%91%E9%80%81Get%E5%92%8CPost%E8%AF%B7%E6%B1%82/</id>
+    <link href="https://thexwen.gitee.io/2020/06/30/Android%E4%BD%BF%E7%94%A8OkHttp%E5%8F%91%E9%80%81Get%E5%92%8CPost%E8%AF%B7%E6%B1%82/"/>
+    <id>https://thexwen.gitee.io/2020/06/30/Android%E4%BD%BF%E7%94%A8OkHttp%E5%8F%91%E9%80%81Get%E5%92%8CPost%E8%AF%B7%E6%B1%82/</id>
     <published>2020-06-30T06:39:33.000Z</published>
-    <updated>2020-06-30T06:57:22.742Z</updated>
+    <updated>2020-06-30T07:21:33.548Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="1-首先添加OkHttp依赖包"><a href="#1-首先添加OkHttp依赖包" class="headerlink" title="1.首先添加OkHttp依赖包"></a>1.首先添加OkHttp依赖包</h2><p>依赖包要根据自己的安卓版本选择，否则版本冲突会报错</p><h2 id="2-在工具类HttpUtil中编写发送Get和Post请求方法"><a href="#2-在工具类HttpUtil中编写发送Get和Post请求方法" class="headerlink" title="2.在工具类HttpUtil中编写发送Get和Post请求方法"></a>2.在工具类HttpUtil中编写发送Get和Post请求方法</h2><p>在发送请求的时候可能会出现NetworkOnMainThreadException异常，解决方法有两个<br>1.简单暴力，强制使用，代码修改简单<br>在MainActivity文件的setContentView(R.layout.activity_main)下面加上如下代码</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (android.os.Build.VERSION.SDK_INT &gt; <span class="number">9</span>) &#123;</span><br><span class="line">    StrictMode.ThreadPolicy policy = <span class="keyword">new</span> StrictMode.ThreadPolicy.Builder().permitAll().build();</span><br><span class="line">    StrictMode.setThreadPolicy(policy);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><p>2.将请求网络资源的代码使用Thread去操作。在Runnable中做HTTP请求，不用阻塞UI线程。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 使用OkHttp发送get请求</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> url 请求地址</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> header 请求头Headers</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">sendGet</span><span class="params">(String url, Map&lt;String, String&gt; header)</span> </span>&#123;</span><br><span class="line">String result = <span class="keyword">null</span>;</span><br><span class="line">OkHttpClient okHttpClient = <span class="keyword">new</span> OkHttpClient();</span><br><span class="line">Request request = <span class="keyword">new</span> Request.Builder()</span><br><span class="line">.url(url)</span><br><span class="line">.addHeader(<span class="string">"Authorization"</span>, header.get(<span class="string">"Authorization"</span>))</span><br><span class="line">.build();</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">Response response = okHttpClient.newCall(request).execute();</span><br><span class="line">result = response.body().string();</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 使用OkHttp发送post请求</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> url 请求地址</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> params 请求参数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">sendPost</span><span class="params">(String url, Map&lt;String, Object&gt; params)</span></span>&#123;</span><br><span class="line">String result = <span class="keyword">null</span>;</span><br><span class="line">OkHttpClient okHttpClient = <span class="keyword">new</span> OkHttpClient();</span><br><span class="line">FormBody.Builder builder = <span class="keyword">new</span> FormBody.Builder();</span><br><span class="line"><span class="comment">//循环写入参数</span></span><br><span class="line"><span class="keyword">for</span>(Map.Entry&lt;String, Object&gt; param : params.entrySet())&#123;</span><br><span class="line">builder.add(param.getKey(), (String) param.getValue());</span><br><span class="line">&#125;</span><br><span class="line">FormBody requestBody = builder.build();</span><br><span class="line"><span class="comment">//创建一个请求对象</span></span><br><span class="line">Request request = <span class="keyword">new</span> Request.Builder()</span><br><span class="line">.url(url)</span><br><span class="line">.post(requestBody)</span><br><span class="line">.build();</span><br><span class="line"><span class="comment">//发送请求获取响应</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">Response response = okHttpClient.newCall(request).execute();</span><br><span class="line">result = response.body().string();</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="3-在需要发送请求的地方调用方法"><a href="#3-在需要发送请求的地方调用方法" class="headerlink" title="3.在需要发送请求的地方调用方法"></a>3.在需要发送请求的地方调用方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">String openDoor_url = <span class="string">""</span>;</span><br><span class="line">String authorization = <span class="string">""</span>;</span><br><span class="line">Map&lt;String, String&gt; header = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">header.put(<span class="string">"Authorization"</span>, authorization);</span><br><span class="line">HttpUtil.sendGet(openDoor_url, header); <span class="comment">//发送Get请求</span></span><br><span class="line"></span><br><span class="line">String login_url = <span class="string">""</span>; <span class="comment">//请求接口</span></span><br><span class="line">Map&lt;String, Object&gt; params = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">params.put(<span class="string">"loginName"</span>, username);</span><br><span class="line">params.put(<span class="string">"password"</span>, password);</span><br><span class="line">String str = HttpUtil.sendPost(login_url, params); <span class="comment">////发送Post请求</span></span><br></pre></td></tr></table></figure><h2 id="4-在记录一下获取JSON数组中的值"><a href="#4-在记录一下获取JSON数组中的值" class="headerlink" title="4.在记录一下获取JSON数组中的值"></a>4.在记录一下获取JSON数组中的值</h2><p>第一种方法：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">"&#123;'array':[&#123;'id':5,'name':'张三'&#125;,&#123;'id':6,'name':'李四'&#125;]&#125;"</span>;</span><br><span class="line">JSONArray jsonArray = <span class="keyword">null</span>;</span><br><span class="line">jsonArray = jsonobj.getJSONArray(<span class="string">"array"</span>);<span class="comment">//获取数组</span></span><br><span class="line">System.out.println(jsonArray.getJSONObject(<span class="number">0</span>).get(<span class="string">"name"</span>));</span><br></pre></td></tr></table></figure><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">"[&#123;'columnId':5,'columnName':'人文历史'&#125;,&#123;'columnId':2,'columnName':'商业视野'&#125;]&#125;"</span>;</span><br><span class="line">JSONArray jsonArray = <span class="keyword">null</span>;</span><br><span class="line">jsonArray = <span class="keyword">new</span> JSONArray(str);</span><br><span class="line">System.out.println(jsonArray.getJSONObject(<span class="number">0</span>).get(<span class="string">"columnName"</span>));</span><br></pre></td></tr></table></figure><p>二、JAVA获取json中的全部键值对</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">JSONObject json1=JSONObject.fromObject(<span class="string">"&#123;'username' : '11111','clientid' : '','password' : '222222'&#125;"</span>);  </span><br><span class="line">Map&lt;String, Object&gt; map =json1;  </span><br><span class="line"><span class="keyword">for</span> (Entry&lt;String, Object&gt; entry : map.entrySet()) &#123;  </span><br><span class="line">    System.out.println(entry.getKey()+<span class="string">"="</span>+entry.getValue());  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="1-首先添加OkHttp依赖包"><a href="#1-首先添加OkHttp依赖包" class="headerlink" title="1.首先添加OkHttp依赖包"></a>1.首先添加OkHttp依赖包</h2><p>依赖包要根据自己的安卓版本选择，否则版本冲突会报错</p><h2 id="2-在工具类HttpUtil中编写发送Get和Post请求方法"><a href="#2-在工具类HttpUtil中编写发送Get和Post请求方法" class="headerlink" title="2.在工具类HttpUtil中编写发送Get和Post请求方法"></a>2.在工具类HttpUtil中编写发送Get和Post请求方法</h2><p>在发送请求的时候可能会出现NetworkOnMainThreadException异常，解决方法有两个<br>1.简单暴力，强制使用，代码修改简单<br>在MainActivity文件的setContentView(R.layout.activity_main)下面加上如下代码</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (android.os.Build.VERSION.SDK_INT &gt; <span class="number">9</span>) &#123;</span><br><span class="line">    StrictMode.ThreadPolicy policy = <span class="keyword">new</span> StrictMode.ThreadPolicy.Builder().permitAll().build();</span><br><span class="line">    StrictMode.setThreadPolicy(policy);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><p>2.将请求网络资源的代码使用Thread去操作。在Runnable中做HTTP请求，不用阻塞UI线程。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable()&#123;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">cachedImage = asyncImageLoader.loadDrawable(imageUrl, position);</span><br><span class="line">imageView.setImageDrawable(cachedImage);</span><br><span class="line">&#125;</span><br><span class="line">&#125;).start();</span><br></pre></td></tr></table></figure><p>编写发送Get请求方法</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 使用OkHttp发送get请求</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> url 请求地址</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> header 请求头Headers</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">sendGet</span><span class="params">(String url, Map&lt;String, String&gt; header)</span> </span>&#123;</span><br><span class="line">String result = <span class="keyword">null</span>;</span><br><span class="line">OkHttpClient okHttpClient = <span class="keyword">new</span> OkHttpClient();</span><br><span class="line">Request request = <span class="keyword">new</span> Request.Builder()</span><br><span class="line">.url(url)</span><br><span class="line">.addHeader(<span class="string">"Authorization"</span>, header.get(<span class="string">"Authorization"</span>))</span><br><span class="line">.build();</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">Response response = okHttpClient.newCall(request).execute();</span><br><span class="line">result = response.body().string();</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>编写发送Post请求方法</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 使用OkHttp发送post请求</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> url 请求地址</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> params 请求参数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">sendPost</span><span class="params">(String url, Map&lt;String, Object&gt; params)</span></span>&#123;</span><br><span class="line">String result = <span class="keyword">null</span>;</span><br><span class="line">OkHttpClient okHttpClient = <span class="keyword">new</span> OkHttpClient();</span><br><span class="line">FormBody.Builder builder = <span class="keyword">new</span> FormBody.Builder();</span><br><span class="line"><span class="comment">//循环写入参数</span></span><br><span class="line"><span class="keyword">for</span>(Map.Entry&lt;String, Object&gt; param : params.entrySet())&#123;</span><br><span class="line">builder.add(param.getKey(), (String) param.getValue());</span><br><span class="line">&#125;</span><br><span class="line">FormBody requestBody = builder.build();</span><br><span class="line"><span class="comment">//创建一个请求对象</span></span><br><span class="line">Request request = <span class="keyword">new</span> Request.Builder()</span><br><span class="line">.url(url)</span><br><span class="line">.post(requestBody)</span><br><span class="line">.build();</span><br><span class="line"><span class="comment">//发送请求获取响应</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">Response response = okHttpClient.newCall(request).execute();</span><br><span class="line">result = response.body().string();</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="3-在需要发送请求的地方调用方法"><a href="#3-在需要发送请求的地方调用方法" class="headerlink" title="3.在需要发送请求的地方调用方法"></a>3.在需要发送请求的地方调用方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">String openDoor_url = <span class="string">""</span>;</span><br><span class="line">String authorization = <span class="string">""</span>;</span><br><span class="line">Map&lt;String, String&gt; header = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">header.put(<span class="string">"Authorization"</span>, authorization);</span><br><span class="line">HttpUtil.sendGet(openDoor_url, header); <span class="comment">//发送Get请求</span></span><br><span class="line"></span><br><span class="line">String login_url = <span class="string">""</span>; <span class="comment">//请求接口</span></span><br><span class="line">Map&lt;String, Object&gt; params = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">params.put(<span class="string">"loginName"</span>, username);</span><br><span class="line">params.put(<span class="string">"password"</span>, password);</span><br><span class="line">String str = HttpUtil.sendPost(login_url, params); <span class="comment">////发送Post请求</span></span><br></pre></td></tr></table></figure><h2 id="4-在记录一下获取JSON数组中的值"><a href="#4-在记录一下获取JSON数组中的值" class="headerlink" title="4.在记录一下获取JSON数组中的值"></a>4.在记录一下获取JSON数组中的值</h2><p>第一种方法：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">"&#123;'array':[&#123;'id':5,'name':'张三'&#125;,&#123;'id':6,'name':'李四'&#125;]&#125;"</span>;</span><br><span class="line">JSONArray jsonArray = <span class="keyword">null</span>;</span><br><span class="line">jsonArray = jsonobj.getJSONArray(<span class="string">"array"</span>);<span class="comment">//获取数组</span></span><br><span class="line">System.out.println(jsonArray.getJSONObject(<span class="number">0</span>).get(<span class="string">"name"</span>));</span><br></pre></td></tr></table></figure><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">"[&#123;'columnId':5,'columnName':'人文历史'&#125;,&#123;'columnId':2,'columnName':'商业视野'&#125;]&#125;"</span>;</span><br><span class="line">JSONArray jsonArray = <span class="keyword">null</span>;</span><br><span class="line">jsonArray = <span class="keyword">new</span> JSONArray(str);</span><br><span class="line">System.out.println(jsonArray.getJSONObject(<span class="number">0</span>).get(<span class="string">"columnName"</span>));</span><br></pre></td></tr></table></figure><p>二、JAVA获取json中的全部键值对</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">JSONObject json1=JSONObject.fromObject(<span class="string">"&#123;'username' : '11111','clientid' : '','password' : '222222'&#125;"</span>);  </span><br><span class="line">Map&lt;String, Object&gt; map =json1;  </span><br><span class="line"><span class="keyword">for</span> (Entry&lt;String, Object&gt; entry : map.entrySet()) &#123;  </span><br><span class="line">    System.out.println(entry.getKey()+<span class="string">"="</span>+entry.getValue());  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -34,17 +34,17 @@
     </summary>
     
     
-      <category term="分享" scheme="http://thexwen.github.io/categories/%E5%88%86%E4%BA%AB/"/>
+      <category term="分享" scheme="https://thexwen.gitee.io/categories/%E5%88%86%E4%BA%AB/"/>
     
     
-      <category term="Android" scheme="http://thexwen.github.io/tags/Android/"/>
+      <category term="Android" scheme="https://thexwen.gitee.io/tags/Android/"/>
     
   </entry>
   
   <entry>
     <title>Android底部弹窗BottomSheetDialog的使用</title>
-    <link href="http://thexwen.github.io/2020/06/23/Android%E5%BA%95%E9%83%A8%E5%BC%B9%E7%AA%97BottomSheetDialog%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://thexwen.github.io/2020/06/23/Android%E5%BA%95%E9%83%A8%E5%BC%B9%E7%AA%97BottomSheetDialog%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
+    <link href="https://thexwen.gitee.io/2020/06/23/Android%E5%BA%95%E9%83%A8%E5%BC%B9%E7%AA%97BottomSheetDialog%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>https://thexwen.gitee.io/2020/06/23/Android%E5%BA%95%E9%83%A8%E5%BC%B9%E7%AA%97BottomSheetDialog%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
     <published>2020-06-23T01:32:45.000Z</published>
     <updated>2020-06-30T06:24:12.420Z</updated>
     
@@ -57,17 +57,17 @@
     </summary>
     
     
-      <category term="分享" scheme="http://thexwen.github.io/categories/%E5%88%86%E4%BA%AB/"/>
+      <category term="分享" scheme="https://thexwen.gitee.io/categories/%E5%88%86%E4%BA%AB/"/>
     
     
-      <category term="Android" scheme="http://thexwen.github.io/tags/Android/"/>
+      <category term="Android" scheme="https://thexwen.gitee.io/tags/Android/"/>
     
   </entry>
   
   <entry>
     <title>找实习全过程</title>
-    <link href="http://thexwen.github.io/2020/06/04/%E6%89%BE%E5%AE%9E%E4%B9%A0%E5%85%A8%E8%BF%87%E7%A8%8B/"/>
-    <id>http://thexwen.github.io/2020/06/04/%E6%89%BE%E5%AE%9E%E4%B9%A0%E5%85%A8%E8%BF%87%E7%A8%8B/</id>
+    <link href="https://thexwen.gitee.io/2020/06/04/%E6%89%BE%E5%AE%9E%E4%B9%A0%E5%85%A8%E8%BF%87%E7%A8%8B/"/>
+    <id>https://thexwen.gitee.io/2020/06/04/%E6%89%BE%E5%AE%9E%E4%B9%A0%E5%85%A8%E8%BF%87%E7%A8%8B/</id>
     <published>2020-06-04T07:06:30.000Z</published>
     <updated>2020-06-04T08:42:15.478Z</updated>
     
@@ -80,17 +80,17 @@
     </summary>
     
     
-      <category term="个人" scheme="http://thexwen.github.io/categories/%E4%B8%AA%E4%BA%BA/"/>
+      <category term="个人" scheme="https://thexwen.gitee.io/categories/%E4%B8%AA%E4%BA%BA/"/>
     
     
-      <category term="工作" scheme="http://thexwen.github.io/tags/%E5%B7%A5%E4%BD%9C/"/>
+      <category term="工作" scheme="https://thexwen.gitee.io/tags/%E5%B7%A5%E4%BD%9C/"/>
     
   </entry>
   
   <entry>
     <title>常见Java面试题(二)</title>
-    <link href="http://thexwen.github.io/2020/05/14/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98-%E4%BA%8C/"/>
-    <id>http://thexwen.github.io/2020/05/14/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98-%E4%BA%8C/</id>
+    <link href="https://thexwen.gitee.io/2020/05/14/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98-%E4%BA%8C/"/>
+    <id>https://thexwen.gitee.io/2020/05/14/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98-%E4%BA%8C/</id>
     <published>2020-05-14T02:23:20.000Z</published>
     <updated>2020-05-17T15:00:22.538Z</updated>
     
@@ -103,17 +103,17 @@
     </summary>
     
     
-      <category term="分享" scheme="http://thexwen.github.io/categories/%E5%88%86%E4%BA%AB/"/>
+      <category term="分享" scheme="https://thexwen.gitee.io/categories/%E5%88%86%E4%BA%AB/"/>
     
     
-      <category term="问题" scheme="http://thexwen.github.io/tags/%E9%97%AE%E9%A2%98/"/>
+      <category term="问题" scheme="https://thexwen.gitee.io/tags/%E9%97%AE%E9%A2%98/"/>
     
   </entry>
   
   <entry>
     <title>常见Java面试题(一)</title>
-    <link href="http://thexwen.github.io/2020/05/10/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    <id>http://thexwen.github.io/2020/05/10/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98/</id>
+    <link href="https://thexwen.gitee.io/2020/05/10/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <id>https://thexwen.gitee.io/2020/05/10/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98/</id>
     <published>2020-05-10T04:46:52.000Z</published>
     <updated>2020-05-14T03:22:05.274Z</updated>
     
@@ -127,17 +127,17 @@
     </summary>
     
     
-      <category term="分享" scheme="http://thexwen.github.io/categories/%E5%88%86%E4%BA%AB/"/>
+      <category term="分享" scheme="https://thexwen.gitee.io/categories/%E5%88%86%E4%BA%AB/"/>
     
     
-      <category term="问题" scheme="http://thexwen.github.io/tags/%E9%97%AE%E9%A2%98/"/>
+      <category term="问题" scheme="https://thexwen.gitee.io/tags/%E9%97%AE%E9%A2%98/"/>
     
   </entry>
   
   <entry>
     <title>Centeos7 Docker 打开zookeeper查看入驻服务信息</title>
-    <link href="http://thexwen.github.io/2020/04/12/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF/"/>
-    <id>http://thexwen.github.io/2020/04/12/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF/</id>
+    <link href="https://thexwen.gitee.io/2020/04/12/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF/"/>
+    <id>https://thexwen.gitee.io/2020/04/12/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF/</id>
     <published>2020-04-12T09:47:15.000Z</published>
     <updated>2020-04-12T10:26:05.806Z</updated>
     
@@ -151,21 +151,21 @@
     </summary>
     
     
-      <category term="分享" scheme="http://thexwen.github.io/categories/%E5%88%86%E4%BA%AB/"/>
+      <category term="分享" scheme="https://thexwen.gitee.io/categories/%E5%88%86%E4%BA%AB/"/>
     
     
-      <category term="Linux" scheme="http://thexwen.github.io/tags/Linux/"/>
+      <category term="Linux" scheme="https://thexwen.gitee.io/tags/Linux/"/>
     
-      <category term="Docker" scheme="http://thexwen.github.io/tags/Docker/"/>
+      <category term="Docker" scheme="https://thexwen.gitee.io/tags/Docker/"/>
     
-      <category term="Zookeeper" scheme="http://thexwen.github.io/tags/Zookeeper/"/>
+      <category term="Zookeeper" scheme="https://thexwen.gitee.io/tags/Zookeeper/"/>
     
   </entry>
   
   <entry>
     <title>Spring Boot使用阿里云OSS实现图片上传</title>
-    <link href="http://thexwen.github.io/2020/03/31/Spring-Boot%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91OSS%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/"/>
-    <id>http://thexwen.github.io/2020/03/31/Spring-Boot%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91OSS%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/</id>
+    <link href="https://thexwen.gitee.io/2020/03/31/Spring-Boot%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91OSS%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/"/>
+    <id>https://thexwen.gitee.io/2020/03/31/Spring-Boot%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91OSS%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/</id>
     <published>2020-03-31T15:22:53.000Z</published>
     <updated>2020-03-31T15:44:22.688Z</updated>
     
@@ -179,19 +179,19 @@
     </summary>
     
     
-      <category term="分享" scheme="http://thexwen.github.io/categories/%E5%88%86%E4%BA%AB/"/>
+      <category term="分享" scheme="https://thexwen.gitee.io/categories/%E5%88%86%E4%BA%AB/"/>
     
     
-      <category term="OSS" scheme="http://thexwen.github.io/tags/OSS/"/>
+      <category term="OSS" scheme="https://thexwen.gitee.io/tags/OSS/"/>
     
-      <category term="Spring Boot" scheme="http://thexwen.github.io/tags/Spring-Boot/"/>
+      <category term="Spring Boot" scheme="https://thexwen.gitee.io/tags/Spring-Boot/"/>
     
   </entry>
   
   <entry>
     <title>调用Gitee/Github API实现第三方登录流程</title>
-    <link href="http://thexwen.github.io/2020/03/24/%E8%B0%83%E7%94%A8Gitee-Github-API%E5%AE%9E%E7%8E%B0%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B/"/>
-    <id>http://thexwen.github.io/2020/03/24/%E8%B0%83%E7%94%A8Gitee-Github-API%E5%AE%9E%E7%8E%B0%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B/</id>
+    <link href="https://thexwen.gitee.io/2020/03/24/%E8%B0%83%E7%94%A8Gitee-Github-API%E5%AE%9E%E7%8E%B0%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B/"/>
+    <id>https://thexwen.gitee.io/2020/03/24/%E8%B0%83%E7%94%A8Gitee-Github-API%E5%AE%9E%E7%8E%B0%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B/</id>
     <published>2020-03-24T12:00:54.000Z</published>
     <updated>2020-03-24T14:16:43.938Z</updated>
     
@@ -205,21 +205,21 @@
     </summary>
     
     
-      <category term="分享" scheme="http://thexwen.github.io/categories/%E5%88%86%E4%BA%AB/"/>
+      <category term="分享" scheme="https://thexwen.gitee.io/categories/%E5%88%86%E4%BA%AB/"/>
     
     
-      <category term="API" scheme="http://thexwen.github.io/tags/API/"/>
+      <category term="API" scheme="https://thexwen.gitee.io/tags/API/"/>
     
-      <category term="Github" scheme="http://thexwen.github.io/tags/Github/"/>
+      <category term="Github" scheme="https://thexwen.gitee.io/tags/Github/"/>
     
-      <category term="Gitee" scheme="http://thexwen.github.io/tags/Gitee/"/>
+      <category term="Gitee" scheme="https://thexwen.gitee.io/tags/Gitee/"/>
     
   </entry>
   
   <entry>
     <title>jQuery动态生成的元素绑定事件</title>
-    <link href="http://thexwen.github.io/2020/03/24/jQuery%E5%8A%A8%E6%80%81%E7%94%9F%E6%88%90%E7%9A%84%E5%85%83%E7%B4%A0%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6/"/>
-    <id>http://thexwen.github.io/2020/03/24/jQuery%E5%8A%A8%E6%80%81%E7%94%9F%E6%88%90%E7%9A%84%E5%85%83%E7%B4%A0%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6/</id>
+    <link href="https://thexwen.gitee.io/2020/03/24/jQuery%E5%8A%A8%E6%80%81%E7%94%9F%E6%88%90%E7%9A%84%E5%85%83%E7%B4%A0%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6/"/>
+    <id>https://thexwen.gitee.io/2020/03/24/jQuery%E5%8A%A8%E6%80%81%E7%94%9F%E6%88%90%E7%9A%84%E5%85%83%E7%B4%A0%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6/</id>
     <published>2020-03-24T11:43:41.000Z</published>
     <updated>2020-03-24T11:55:58.891Z</updated>
     
@@ -235,19 +235,19 @@
     </summary>
     
     
-      <category term="问题" scheme="http://thexwen.github.io/categories/%E9%97%AE%E9%A2%98/"/>
+      <category term="问题" scheme="https://thexwen.gitee.io/categories/%E9%97%AE%E9%A2%98/"/>
     
     
-      <category term="问题" scheme="http://thexwen.github.io/tags/%E9%97%AE%E9%A2%98/"/>
+      <category term="问题" scheme="https://thexwen.gitee.io/tags/%E9%97%AE%E9%A2%98/"/>
     
-      <category term="jquery" scheme="http://thexwen.github.io/tags/jquery/"/>
+      <category term="jquery" scheme="https://thexwen.gitee.io/tags/jquery/"/>
     
   </entry>
   
   <entry>
     <title>使用js jquery分别获取地址栏参数值</title>
-    <link href="http://thexwen.github.io/2020/03/21/%E4%BD%BF%E7%94%A8js-jquery%E5%88%86%E5%88%AB%E8%8E%B7%E5%8F%96%E5%9C%B0%E5%9D%80%E6%A0%8F%E5%8F%82%E6%95%B0%E5%80%BC/"/>
-    <id>http://thexwen.github.io/2020/03/21/%E4%BD%BF%E7%94%A8js-jquery%E5%88%86%E5%88%AB%E8%8E%B7%E5%8F%96%E5%9C%B0%E5%9D%80%E6%A0%8F%E5%8F%82%E6%95%B0%E5%80%BC/</id>
+    <link href="https://thexwen.gitee.io/2020/03/21/%E4%BD%BF%E7%94%A8js-jquery%E5%88%86%E5%88%AB%E8%8E%B7%E5%8F%96%E5%9C%B0%E5%9D%80%E6%A0%8F%E5%8F%82%E6%95%B0%E5%80%BC/"/>
+    <id>https://thexwen.gitee.io/2020/03/21/%E4%BD%BF%E7%94%A8js-jquery%E5%88%86%E5%88%AB%E8%8E%B7%E5%8F%96%E5%9C%B0%E5%9D%80%E6%A0%8F%E5%8F%82%E6%95%B0%E5%80%BC/</id>
     <published>2020-03-20T16:15:56.000Z</published>
     <updated>2020-03-20T16:26:34.646Z</updated>
     
@@ -261,21 +261,21 @@
     </summary>
     
     
-      <category term="问题" scheme="http://thexwen.github.io/categories/%E9%97%AE%E9%A2%98/"/>
+      <category term="问题" scheme="https://thexwen.gitee.io/categories/%E9%97%AE%E9%A2%98/"/>
     
     
-      <category term="问题" scheme="http://thexwen.github.io/tags/%E9%97%AE%E9%A2%98/"/>
+      <category term="问题" scheme="https://thexwen.gitee.io/tags/%E9%97%AE%E9%A2%98/"/>
     
-      <category term="jquery" scheme="http://thexwen.github.io/tags/jquery/"/>
+      <category term="jquery" scheme="https://thexwen.gitee.io/tags/jquery/"/>
     
-      <category term="js" scheme="http://thexwen.github.io/tags/js/"/>
+      <category term="js" scheme="https://thexwen.gitee.io/tags/js/"/>
     
   </entry>
   
   <entry>
     <title>简单好用的jquery分页插件</title>
-    <link href="http://thexwen.github.io/2020/03/18/%E7%AE%80%E5%8D%95%E5%A5%BD%E7%94%A8%E7%9A%84jquery%E5%88%86%E9%A1%B5%E6%8F%92%E4%BB%B6/"/>
-    <id>http://thexwen.github.io/2020/03/18/%E7%AE%80%E5%8D%95%E5%A5%BD%E7%94%A8%E7%9A%84jquery%E5%88%86%E9%A1%B5%E6%8F%92%E4%BB%B6/</id>
+    <link href="https://thexwen.gitee.io/2020/03/18/%E7%AE%80%E5%8D%95%E5%A5%BD%E7%94%A8%E7%9A%84jquery%E5%88%86%E9%A1%B5%E6%8F%92%E4%BB%B6/"/>
+    <id>https://thexwen.gitee.io/2020/03/18/%E7%AE%80%E5%8D%95%E5%A5%BD%E7%94%A8%E7%9A%84jquery%E5%88%86%E9%A1%B5%E6%8F%92%E4%BB%B6/</id>
     <published>2020-03-18T06:40:43.000Z</published>
     <updated>2020-03-20T16:26:50.574Z</updated>
     
@@ -288,19 +288,19 @@
     </summary>
     
     
-      <category term="分享" scheme="http://thexwen.github.io/categories/%E5%88%86%E4%BA%AB/"/>
+      <category term="分享" scheme="https://thexwen.gitee.io/categories/%E5%88%86%E4%BA%AB/"/>
     
     
-      <category term="jquery" scheme="http://thexwen.github.io/tags/jquery/"/>
+      <category term="jquery" scheme="https://thexwen.gitee.io/tags/jquery/"/>
     
-      <category term="插件" scheme="http://thexwen.github.io/tags/%E6%8F%92%E4%BB%B6/"/>
+      <category term="插件" scheme="https://thexwen.gitee.io/tags/%E6%8F%92%E4%BB%B6/"/>
     
   </entry>
   
   <entry>
     <title>外部引入js文件不生效解决方法</title>
-    <link href="http://thexwen.github.io/2020/03/14/%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5js%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
-    <id>http://thexwen.github.io/2020/03/14/%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5js%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</id>
+    <link href="https://thexwen.gitee.io/2020/03/14/%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5js%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
+    <id>https://thexwen.gitee.io/2020/03/14/%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5js%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</id>
     <published>2020-03-14T13:47:24.000Z</published>
     <updated>2020-05-07T10:30:12.349Z</updated>
     
@@ -316,19 +316,19 @@
     </summary>
     
     
-      <category term="问题" scheme="http://thexwen.github.io/categories/%E9%97%AE%E9%A2%98/"/>
+      <category term="问题" scheme="https://thexwen.gitee.io/categories/%E9%97%AE%E9%A2%98/"/>
     
     
-      <category term="问题" scheme="http://thexwen.github.io/tags/%E9%97%AE%E9%A2%98/"/>
+      <category term="问题" scheme="https://thexwen.gitee.io/tags/%E9%97%AE%E9%A2%98/"/>
     
-      <category term="js" scheme="http://thexwen.github.io/tags/js/"/>
+      <category term="js" scheme="https://thexwen.gitee.io/tags/js/"/>
     
   </entry>
   
   <entry>
     <title>我的博客搭建全过程(1)</title>
-    <link href="http://thexwen.github.io/2020/03/11/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%85%A8%E8%BF%87%E7%A8%8B/"/>
-    <id>http://thexwen.github.io/2020/03/11/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%85%A8%E8%BF%87%E7%A8%8B/</id>
+    <link href="https://thexwen.gitee.io/2020/03/11/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%85%A8%E8%BF%87%E7%A8%8B/"/>
+    <id>https://thexwen.gitee.io/2020/03/11/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%85%A8%E8%BF%87%E7%A8%8B/</id>
     <published>2020-03-11T13:00:31.000Z</published>
     <updated>2020-03-18T08:20:56.846Z</updated>
     
@@ -342,21 +342,21 @@
     </summary>
     
     
-      <category term="hexo博客" scheme="http://thexwen.github.io/categories/hexo%E5%8D%9A%E5%AE%A2/"/>
+      <category term="hexo博客" scheme="https://thexwen.gitee.io/categories/hexo%E5%8D%9A%E5%AE%A2/"/>
     
     
-      <category term="博客" scheme="http://thexwen.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="https://thexwen.gitee.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
-      <category term="Hexo" scheme="http://thexwen.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://thexwen.gitee.io/tags/Hexo/"/>
     
-      <category term="Next" scheme="http://thexwen.github.io/tags/Next/"/>
+      <category term="Next" scheme="https://thexwen.gitee.io/tags/Next/"/>
     
   </entry>
   
   <entry>
     <title>我的第一台阿里服务器</title>
-    <link href="http://thexwen.github.io/2020/03/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E5%8F%B0%E9%98%BF%E9%87%8C%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    <id>http://thexwen.github.io/2020/03/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E5%8F%B0%E9%98%BF%E9%87%8C%E6%9C%8D%E5%8A%A1%E5%99%A8/</id>
+    <link href="https://thexwen.gitee.io/2020/03/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E5%8F%B0%E9%98%BF%E9%87%8C%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>https://thexwen.gitee.io/2020/03/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E5%8F%B0%E9%98%BF%E9%87%8C%E6%9C%8D%E5%8A%A1%E5%99%A8/</id>
     <published>2020-03-11T04:54:02.000Z</published>
     <updated>2020-03-11T09:50:16.492Z</updated>
     
@@ -372,17 +372,17 @@
     </summary>
     
     
-      <category term="个人" scheme="http://thexwen.github.io/categories/%E4%B8%AA%E4%BA%BA/"/>
+      <category term="个人" scheme="https://thexwen.gitee.io/categories/%E4%B8%AA%E4%BA%BA/"/>
     
     
-      <category term="服务器" scheme="http://thexwen.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+      <category term="服务器" scheme="https://thexwen.gitee.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>我的第一篇博客</title>
-    <link href="http://thexwen.github.io/2020/03/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://thexwen.github.io/2020/03/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</id>
+    <link href="https://thexwen.gitee.io/2020/03/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://thexwen.gitee.io/2020/03/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</id>
     <published>2020-03-10T18:44:02.000Z</published>
     <updated>2020-03-10T20:16:30.800Z</updated>
     
@@ -403,8 +403,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://thexwen.github.io/2020/03/10/hello-world/"/>
-    <id>http://thexwen.github.io/2020/03/10/hello-world/</id>
+    <link href="https://thexwen.gitee.io/2020/03/10/hello-world/"/>
+    <id>https://thexwen.gitee.io/2020/03/10/hello-world/</id>
     <published>2020-03-10T15:37:03.799Z</published>
     <updated>2020-03-18T08:22:21.237Z</updated>
     
