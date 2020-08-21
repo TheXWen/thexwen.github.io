@@ -151,6 +151,20 @@
   </url>
   
   <url>
+    <loc>https://thexwen.github.io/tags/OSS/</loc>
+    <lastmod>2020-08-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thexwen.github.io/tags/Spring-Boot/</loc>
+    <lastmod>2020-08-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://thexwen.github.io/tags/Linux/</loc>
     <lastmod>2020-08-21</lastmod>
     <changefreq>daily</changefreq>
@@ -172,21 +186,14 @@
   </url>
   
   <url>
-    <loc>https://thexwen.github.io/tags/OSS/</loc>
-    <lastmod>2020-08-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://thexwen.github.io/tags/Spring-Boot/</loc>
-    <lastmod>2020-08-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://thexwen.github.io/tags/%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2020-08-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thexwen.github.io/tags/jquery/</loc>
     <lastmod>2020-08-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -200,7 +207,28 @@
   </url>
   
   <url>
-    <loc>https://thexwen.github.io/tags/jquery/</loc>
+    <loc>https://thexwen.github.io/tags/%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2020-08-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thexwen.github.io/tags/Hexo/</loc>
+    <lastmod>2020-08-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thexwen.github.io/tags/Next/</loc>
+    <lastmod>2020-08-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thexwen.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
     <lastmod>2020-08-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -241,34 +269,6 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>https://thexwen.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
-    <lastmod>2020-08-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://thexwen.github.io/tags/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2020-08-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://thexwen.github.io/tags/Hexo/</loc>
-    <lastmod>2020-08-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://thexwen.github.io/tags/Next/</loc>
-    <lastmod>2020-08-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   
   <url>
@@ -286,14 +286,14 @@
   </url>
   
   <url>
-    <loc>https://thexwen.github.io/categories/%E4%B8%AA%E4%BA%BA/</loc>
+    <loc>https://thexwen.github.io/categories/hexo%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2020-08-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://thexwen.github.io/categories/hexo%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>https://thexwen.github.io/categories/%E4%B8%AA%E4%BA%BA/</loc>
     <lastmod>2020-08-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
