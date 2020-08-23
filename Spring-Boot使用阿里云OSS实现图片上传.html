@@ -30,20 +30,23 @@
     var CONFIG = {"hostname":"thexwen.github.io","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1.首先添加OkHttp依赖包依赖包要根据自己的安卓版本选择，否则版本冲突会报错 2.在工具类HttpUtil中编写发送Get和Post请求方法在发送请求的时候可能会出现NetworkOnMainThreadException异常，解决方法有两个1.简单暴力，强制使用，代码修改简单在MainActivity文件的setContentView(R.layout.activity_main)下面加上如">
+  <meta name="description" content="1.在Maven项目中加入依赖项12345&lt;dependency&gt;    &lt;groupId&gt;com.aliyun.oss&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;aliyun-sdk-oss&lt;&#x2F;artifactId&gt;    &lt;version&gt;3.8.0&lt;&#x2F;version&gt;&lt;&#x2F;dependency&amp;g">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android使用OkHttp发送Get和Post请求">
-<meta property="og:url" content="https://thexwen.github.io/Android%E4%BD%BF%E7%94%A8OkHttp%E5%8F%91%E9%80%81Get%E5%92%8CPost%E8%AF%B7%E6%B1%82/index.html">
+<meta property="og:title" content="Spring Boot使用阿里云OSS实现图片上传">
+<meta property="og:url" content="https://thexwen.github.io/Spring-Boot%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91OSS%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0.html">
 <meta property="og:site_name" content="xw&#39;s Blog">
-<meta property="og:description" content="1.首先添加OkHttp依赖包依赖包要根据自己的安卓版本选择，否则版本冲突会报错 2.在工具类HttpUtil中编写发送Get和Post请求方法在发送请求的时候可能会出现NetworkOnMainThreadException异常，解决方法有两个1.简单暴力，强制使用，代码修改简单在MainActivity文件的setContentView(R.layout.activity_main)下面加上如">
+<meta property="og:description" content="1.在Maven项目中加入依赖项12345&lt;dependency&gt;    &lt;groupId&gt;com.aliyun.oss&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;aliyun-sdk-oss&lt;&#x2F;artifactId&gt;    &lt;version&gt;3.8.0&lt;&#x2F;version&gt;&lt;&#x2F;dependency&amp;g">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-06-30T06:39:33.000Z">
-<meta property="article:modified_time" content="2020-06-30T07:21:33.548Z">
+<meta property="og:image" content="https://thexwen.github.io/Spring-Boot%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91OSS%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0.htm/AccessKey.JPG">
+<meta property="article:published_time" content="2020-03-31T15:22:53.000Z">
+<meta property="article:modified_time" content="2020-03-31T15:44:22.688Z">
 <meta property="article:author" content="xw">
-<meta property="article:tag" content="Android">
+<meta property="article:tag" content="OSS">
+<meta property="article:tag" content="Spring Boot">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://thexwen.github.io/Spring-Boot%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91OSS%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0.htm/AccessKey.JPG">
 
-<link rel="canonical" href="https://thexwen.github.io/Android%E4%BD%BF%E7%94%A8OkHttp%E5%8F%91%E9%80%81Get%E5%92%8CPost%E8%AF%B7%E6%B1%82/">
+<link rel="canonical" href="https://thexwen.github.io/Spring-Boot%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91OSS%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0.html">
 
 
 <script id="page-configurations">
@@ -55,7 +58,7 @@
   };
 </script>
 
-  <title>Android使用OkHttp发送Get和Post请求 | xw's Blog</title>
+  <title>Spring Boot使用阿里云OSS实现图片上传 | xw's Blog</title>
   
 
 
@@ -122,7 +125,8 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">记录,分享</p>
+        <h1 class="site-subtitle" itemprop="description">记录,分享</h1>
+      
   </div>
 
   <div class="site-nav-right">
@@ -215,7 +219,7 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://thexwen.github.io/Android%E4%BD%BF%E7%94%A8OkHttp%E5%8F%91%E9%80%81Get%E5%92%8CPost%E8%AF%B7%E6%B1%82/">
+    <link itemprop="mainEntityOfPage" href="https://thexwen.github.io/Spring-Boot%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91OSS%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -227,9 +231,9 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
       <meta itemprop="name" content="xw's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Android使用OkHttp发送Get和Post请求
-        </h1>
+        <h2 class="post-title" itemprop="name headline">
+          Spring Boot使用阿里云OSS实现图片上传
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -239,7 +243,7 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-06-30 14:39:33 / 修改时间：15:21:33" itemprop="dateCreated datePublished" datetime="2020-06-30T14:39:33+08:00">2020-06-30</time>
+              <time title="创建时间：2020-03-31 23:22:53 / 修改时间：23:44:22" itemprop="dateCreated datePublished" datetime="2020-03-31T23:22:53+08:00">2020-03-31</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -267,8 +271,8 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/Android%E4%BD%BF%E7%94%A8OkHttp%E5%8F%91%E9%80%81Get%E5%92%8CPost%E8%AF%B7%E6%B1%82/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/Android%E4%BD%BF%E7%94%A8OkHttp%E5%8F%91%E9%80%81Get%E5%92%8CPost%E8%AF%B7%E6%B1%82/" itemprop="commentCount"></span>
+    <a title="valine" href="/Spring-Boot%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91OSS%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/Spring-Boot%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91OSS%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -278,14 +282,14 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.1k</span>
+              <span>1.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -297,22 +301,14 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-首先添加OkHttp依赖包"><a href="#1-首先添加OkHttp依赖包" class="headerlink" title="1.首先添加OkHttp依赖包"></a>1.首先添加OkHttp依赖包</h2><p>依赖包要根据自己的安卓版本选择，否则版本冲突会报错</p>
-<h2 id="2-在工具类HttpUtil中编写发送Get和Post请求方法"><a href="#2-在工具类HttpUtil中编写发送Get和Post请求方法" class="headerlink" title="2.在工具类HttpUtil中编写发送Get和Post请求方法"></a>2.在工具类HttpUtil中编写发送Get和Post请求方法</h2><p>在发送请求的时候可能会出现NetworkOnMainThreadException异常，解决方法有两个<br>1.简单暴力，强制使用，代码修改简单<br>在MainActivity文件的setContentView(R.layout.activity_main)下面加上如下代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (android.os.Build.VERSION.SDK_INT &gt; <span class="number">9</span>) &#123;</span><br><span class="line">    StrictMode.ThreadPolicy policy = <span class="keyword">new</span> StrictMode.ThreadPolicy.Builder().permitAll().build();</span><br><span class="line">    StrictMode.setThreadPolicy(policy);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="1-在Maven项目中加入依赖项"><a href="#1-在Maven项目中加入依赖项" class="headerlink" title="1.在Maven项目中加入依赖项"></a>1.在Maven项目中加入依赖项</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.aliyun.oss&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;aliyun-sdk-oss&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.8.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-获取AccessKey"><a href="#2-获取AccessKey" class="headerlink" title="2.获取AccessKey"></a>2.获取AccessKey</h2><p>登录阿里云，在个人头像下面有一个AccessKey管理选项，点击进入创建一个AccessKey</p>
 <a id="more"></a>
-<p>2.将请求网络资源的代码使用Thread去操作。在Runnable中做HTTP请求，不用阻塞UI线程。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable()&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		cachedImage = asyncImageLoader.loadDrawable(imageUrl, position);</span><br><span class="line">		imageView.setImageDrawable(cachedImage);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;).start();</span><br></pre></td></tr></table></figure>
-<p>编写发送Get请求方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 使用OkHttp发送get请求</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> url 请求地址</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> header 请求头Headers</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">sendGet</span><span class="params">(String url, Map&lt;String, String&gt; header)</span> </span>&#123;</span><br><span class="line">	String result = <span class="keyword">null</span>;</span><br><span class="line">	OkHttpClient okHttpClient = <span class="keyword">new</span> OkHttpClient();</span><br><span class="line">	Request request = <span class="keyword">new</span> Request.Builder()</span><br><span class="line">			.url(url)</span><br><span class="line">			.addHeader(<span class="string">"Authorization"</span>, header.get(<span class="string">"Authorization"</span>))</span><br><span class="line">			.build();</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		Response response = okHttpClient.newCall(request).execute();</span><br><span class="line">		result = response.body().string();</span><br><span class="line">	&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>编写发送Post请求方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 使用OkHttp发送post请求</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> url 请求地址</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> params 请求参数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">sendPost</span><span class="params">(String url, Map&lt;String, Object&gt; params)</span></span>&#123;</span><br><span class="line">	String result = <span class="keyword">null</span>;</span><br><span class="line">	OkHttpClient okHttpClient = <span class="keyword">new</span> OkHttpClient();</span><br><span class="line">	FormBody.Builder builder = <span class="keyword">new</span> FormBody.Builder();</span><br><span class="line">	<span class="comment">//循环写入参数</span></span><br><span class="line">	<span class="keyword">for</span>(Map.Entry&lt;String, Object&gt; param : params.entrySet())&#123;</span><br><span class="line">		builder.add(param.getKey(), (String) param.getValue());</span><br><span class="line">	&#125;</span><br><span class="line">	FormBody requestBody = builder.build();</span><br><span class="line">	<span class="comment">//创建一个请求对象</span></span><br><span class="line">	Request request = <span class="keyword">new</span> Request.Builder()</span><br><span class="line">			.url(url)</span><br><span class="line">			.post(requestBody)</span><br><span class="line">			.build();</span><br><span class="line">	<span class="comment">//发送请求获取响应</span></span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		Response response = okHttpClient.newCall(request).execute();</span><br><span class="line">		result = response.body().string();</span><br><span class="line">	&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="3-在需要发送请求的地方调用方法"><a href="#3-在需要发送请求的地方调用方法" class="headerlink" title="3.在需要发送请求的地方调用方法"></a>3.在需要发送请求的地方调用方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">String openDoor_url = <span class="string">""</span>;</span><br><span class="line">String authorization = <span class="string">""</span>;</span><br><span class="line">Map&lt;String, String&gt; header = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">header.put(<span class="string">"Authorization"</span>, authorization);</span><br><span class="line">HttpUtil.sendGet(openDoor_url, header); <span class="comment">//发送Get请求</span></span><br><span class="line"></span><br><span class="line">String login_url = <span class="string">""</span>; <span class="comment">//请求接口</span></span><br><span class="line">Map&lt;String, Object&gt; params = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">params.put(<span class="string">"loginName"</span>, username);</span><br><span class="line">params.put(<span class="string">"password"</span>, password);</span><br><span class="line">String str = HttpUtil.sendPost(login_url, params); <span class="comment">////发送Post请求</span></span><br></pre></td></tr></table></figure>
-<h2 id="4-在记录一下获取JSON数组中的值"><a href="#4-在记录一下获取JSON数组中的值" class="headerlink" title="4.在记录一下获取JSON数组中的值"></a>4.在记录一下获取JSON数组中的值</h2><p>第一种方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">"&#123;'array':[&#123;'id':5,'name':'张三'&#125;,&#123;'id':6,'name':'李四'&#125;]&#125;"</span>;</span><br><span class="line">JSONArray jsonArray = <span class="keyword">null</span>;</span><br><span class="line">jsonArray = jsonobj.getJSONArray(<span class="string">"array"</span>);<span class="comment">//获取数组</span></span><br><span class="line">System.out.println(jsonArray.getJSONObject(<span class="number">0</span>).get(<span class="string">"name"</span>));</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">"[&#123;'columnId':5,'columnName':'人文历史'&#125;,&#123;'columnId':2,'columnName':'商业视野'&#125;]&#125;"</span>;</span><br><span class="line">JSONArray jsonArray = <span class="keyword">null</span>;</span><br><span class="line">jsonArray = <span class="keyword">new</span> JSONArray(str);</span><br><span class="line">System.out.println(jsonArray.getJSONObject(<span class="number">0</span>).get(<span class="string">"columnName"</span>));</span><br></pre></td></tr></table></figure>
-<p>二、JAVA获取json中的全部键值对</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">JSONObject json1=JSONObject.fromObject(<span class="string">"&#123;'username' : '11111','clientid' : '','password' : '222222'&#125;"</span>);  </span><br><span class="line">Map&lt;String, Object&gt; map =json1;  </span><br><span class="line"><span class="keyword">for</span> (Entry&lt;String, Object&gt; entry : map.entrySet()) &#123;  </span><br><span class="line">    System.out.println(entry.getKey()+<span class="string">"="</span>+entry.getValue());  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/Spring-Boot%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91OSS%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0.htm/AccessKey.JPG" alt="创建AccessKey"></p>
+<h2 id="3-创建一个Bucket"><a href="#3-创建一个Bucket" class="headerlink" title="3.创建一个Bucket"></a>3.创建一个Bucket</h2><p>在阿里云的对象存储创建一个Bucket</p>
+<h2 id="4-编写上传类"><a href="#4-编写上传类" class="headerlink" title="4.编写上传类"></a>4.编写上传类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AliyunProvider</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">""</span>)</span><br><span class="line">    <span class="keyword">private</span> String AccessKeyID;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">""</span>)</span><br><span class="line">    <span class="keyword">private</span> String AccessKeySecret;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">upload</span><span class="params">(InputStream fileStream, String fileName)</span></span>&#123; <span class="comment">//fileStream:文件流 fileName:文件名</span></span><br><span class="line">        String endpoint = <span class="string">""</span>; <span class="comment">//根据自己的地域填写</span></span><br><span class="line">        String accessKeyId = AccessKeyID;</span><br><span class="line">        String accessKeySecret = AccessKeySecret;</span><br><span class="line">        String bucketName = <span class="string">""</span>; <span class="comment">//根据自己的bucketName填写</span></span><br><span class="line">		<span class="comment">//随机生成文件名</span></span><br><span class="line">        String generatedFileName = <span class="string">""</span>;</span><br><span class="line">        String[] filePaths = fileName.split(<span class="string">"\\."</span>);</span><br><span class="line">        <span class="keyword">if</span> (filePaths.length &gt; <span class="number">1</span>)&#123;</span><br><span class="line">            generatedFileName = UUID.randomUUID().toString() + <span class="string">"."</span> + filePaths[filePaths.length - <span class="number">1</span>];</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建OSSClient实例。</span></span><br><span class="line">        OSS ossClient = <span class="keyword">new</span> OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建存储空间。</span></span><br><span class="line">        ossClient.createBucket(bucketName);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 上传文件流。</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            ossClient.putObject(bucketName, generatedFileName, fileStream);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 关闭OSSClient。</span></span><br><span class="line">        ossClient.shutdown();</span><br><span class="line">        <span class="keyword">return</span> generatedFileName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上，就是阿里云OSS实现图片上传的流程</p>
+
     </div>
 
     
@@ -340,7 +336,8 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
+              <a href="/tags/OSS/" rel="tag"><i class="fa fa-tag"></i> OSS</a>
+              <a href="/tags/Spring-Boot/" rel="tag"><i class="fa fa-tag"></i> Spring Boot</a>
           </div>
 
         
@@ -349,10 +346,13 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/Android%E5%BA%95%E9%83%A8%E5%BC%B9%E7%AA%97BottomSheetDialog%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="Android底部弹窗BottomSheetDialog的使用">
-      <i class="fa fa-chevron-left"></i> Android底部弹窗BottomSheetDialog的使用
+    <a href="/%E8%B0%83%E7%94%A8Gitee-Github-API%E5%AE%9E%E7%8E%B0%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B.html" rel="prev" title="调用Gitee/Github API实现第三方登录流程">
+      <i class="fa fa-chevron-left"></i> 调用Gitee/Github API实现第三方登录流程
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.html" rel="next" title="Centeos7 Docker 打开zookeeper查看入驻服务信息">
+      Centeos7 Docker 打开zookeeper查看入驻服务信息 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -413,7 +413,7 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-首先添加OkHttp依赖包"><span class="nav-number">1.</span> <span class="nav-text">1.首先添加OkHttp依赖包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-在工具类HttpUtil中编写发送Get和Post请求方法"><span class="nav-number">2.</span> <span class="nav-text">2.在工具类HttpUtil中编写发送Get和Post请求方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-在需要发送请求的地方调用方法"><span class="nav-number">3.</span> <span class="nav-text">3.在需要发送请求的地方调用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-在记录一下获取JSON数组中的值"><span class="nav-number">4.</span> <span class="nav-text">4.在记录一下获取JSON数组中的值</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-在Maven项目中加入依赖项"><span class="nav-number">1.</span> <span class="nav-text">1.在Maven项目中加入依赖项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-获取AccessKey"><span class="nav-number">2.</span> <span class="nav-text">2.获取AccessKey</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-创建一个Bucket"><span class="nav-number">3.</span> <span class="nav-text">3.创建一个Bucket</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-编写上传类"><span class="nav-number">4.</span> <span class="nav-text">4.编写上传类</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -620,7 +620,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       notify     : false,
       appId      : 'PEHqSDkTPvJejkRHeWPqkre3-gzGzoHsz',
       appKey     : 'VWqxHQrDjg3CESeHi2yO2suc',
-      placeholder: "有请下一位追梦人",
+      placeholder: "来都来了，不撩一句嘛~，留言记得在上面留下【邮箱】，方便收到回复通知~",
       avatar     : 'mm',
       meta       : guest,
       pageSize   : '10' || 10,

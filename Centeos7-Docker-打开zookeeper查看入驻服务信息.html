@@ -30,23 +30,27 @@
     var CONFIG = {"hostname":"thexwen.github.io","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="昨天写项目的时候要用到分页功能，于是去找了一下jquery分页插件。以前有到一个分页插件，但是样式不太好看。在jquery插件库找到一个简单好用的分页插件，分享一下jQuery分页插件样式如下">
+  <meta name="description" content="1.启动Docker1sudo systemctl start docker 2.查看zookeeper进程1docker ps">
 <meta property="og:type" content="article">
-<meta property="og:title" content="简单好用的jquery分页插件">
-<meta property="og:url" content="https://thexwen.github.io/%E7%AE%80%E5%8D%95%E5%A5%BD%E7%94%A8%E7%9A%84jquery%E5%88%86%E9%A1%B5%E6%8F%92%E4%BB%B6/index.html">
+<meta property="og:title" content="Centeos7 Docker 打开zookeeper查看入驻服务信息">
+<meta property="og:url" content="https://thexwen.github.io/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.html">
 <meta property="og:site_name" content="xw&#39;s Blog">
-<meta property="og:description" content="昨天写项目的时候要用到分页功能，于是去找了一下jquery分页插件。以前有到一个分页插件，但是样式不太好看。在jquery插件库找到一个简单好用的分页插件，分享一下jQuery分页插件样式如下">
+<meta property="og:description" content="1.启动Docker1sudo systemctl start docker 2.查看zookeeper进程1docker ps">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://thexwen.github.io/%E7%AE%80%E5%8D%95%E5%A5%BD%E7%94%A8%E7%9A%84jquery%E5%88%86%E9%A1%B5%E6%8F%92%E4%BB%B6/jQueryPaging.JPG">
-<meta property="article:published_time" content="2020-03-18T06:40:43.000Z">
-<meta property="article:modified_time" content="2020-03-20T16:26:50.574Z">
+<meta property="og:image" content="https://thexwen.github.io/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.htm/viewProgress.JPG">
+<meta property="og:image" content="https://thexwen.github.io/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.htm/enter.JPG">
+<meta property="og:image" content="https://thexwen.github.io/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.htm/ls.JPG">
+<meta property="og:image" content="https://thexwen.github.io/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.htm/services.JPG">
+<meta property="article:published_time" content="2020-04-12T09:47:15.000Z">
+<meta property="article:modified_time" content="2020-04-12T10:26:05.806Z">
 <meta property="article:author" content="xw">
-<meta property="article:tag" content="jquery">
-<meta property="article:tag" content="插件">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="Zookeeper">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thexwen.github.io/%E7%AE%80%E5%8D%95%E5%A5%BD%E7%94%A8%E7%9A%84jquery%E5%88%86%E9%A1%B5%E6%8F%92%E4%BB%B6/jQueryPaging.JPG">
+<meta name="twitter:image" content="https://thexwen.github.io/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.htm/viewProgress.JPG">
 
-<link rel="canonical" href="https://thexwen.github.io/%E7%AE%80%E5%8D%95%E5%A5%BD%E7%94%A8%E7%9A%84jquery%E5%88%86%E9%A1%B5%E6%8F%92%E4%BB%B6/">
+<link rel="canonical" href="https://thexwen.github.io/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.html">
 
 
 <script id="page-configurations">
@@ -58,7 +62,7 @@
   };
 </script>
 
-  <title>简单好用的jquery分页插件 | xw's Blog</title>
+  <title>Centeos7 Docker 打开zookeeper查看入驻服务信息 | xw's Blog</title>
   
 
 
@@ -125,7 +129,8 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">记录,分享</p>
+        <h1 class="site-subtitle" itemprop="description">记录,分享</h1>
+      
   </div>
 
   <div class="site-nav-right">
@@ -218,7 +223,7 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://thexwen.github.io/%E7%AE%80%E5%8D%95%E5%A5%BD%E7%94%A8%E7%9A%84jquery%E5%88%86%E9%A1%B5%E6%8F%92%E4%BB%B6/">
+    <link itemprop="mainEntityOfPage" href="https://thexwen.github.io/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -230,9 +235,9 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
       <meta itemprop="name" content="xw's Blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          简单好用的jquery分页插件
-        </h1>
+        <h2 class="post-title" itemprop="name headline">
+          Centeos7 Docker 打开zookeeper查看入驻服务信息
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -240,16 +245,10 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-03-18 14:40:43" itemprop="dateCreated datePublished" datetime="2020-03-18T14:40:43+08:00">2020-03-18</time>
+              <time title="创建时间：2020-04-12 17:47:15 / 修改时间：18:26:05" itemprop="dateCreated datePublished" datetime="2020-04-12T17:47:15+08:00">2020-04-12</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-21 00:26:50" itemprop="dateModified" datetime="2020-03-21T00:26:50+08:00">2020-03-21</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -276,8 +275,8 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/%E7%AE%80%E5%8D%95%E5%A5%BD%E7%94%A8%E7%9A%84jquery%E5%88%86%E9%A1%B5%E6%8F%92%E4%BB%B6/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/%E7%AE%80%E5%8D%95%E5%A5%BD%E7%94%A8%E7%9A%84jquery%E5%88%86%E9%A1%B5%E6%8F%92%E4%BB%B6/" itemprop="commentCount"></span>
+    <a title="valine" href="/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -287,7 +286,7 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>449</span>
+              <span>273</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -306,13 +305,19 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>昨天写项目的时候要用到分页功能，于是去找了一下jquery分页插件。以前有到一个分页插件，但是样式不太好看。在jquery插件库找到一个简单好用的分页插件，分享一下<a href="http://www.jq22.com/jquery-info22247" target="_blank" rel="noopener">jQuery分页插件</a><br>样式如下</p>
+        <h2 id="1-启动Docker"><a href="#1-启动Docker" class="headerlink" title="1.启动Docker"></a>1.启动Docker</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure>
+<h2 id="2-查看zookeeper进程"><a href="#2-查看zookeeper进程" class="headerlink" title="2.查看zookeeper进程"></a>2.查看zookeeper进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p><img src="/%E7%AE%80%E5%8D%95%E5%A5%BD%E7%94%A8%E7%9A%84jquery%E5%88%86%E9%A1%B5%E6%8F%92%E4%BB%B6/jQueryPaging.JPG" alt="jquery分页插件"><br>使用步骤：<br>1.下载解压后，将js和css文件导入项目<br>2.在html页面中找到一个合适的位置插入代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;pagination1&quot; class&#x3D;&quot;page fl&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
-<p>3.新建一个js文件，添加js代码，在html中引入js文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#pagination1&quot;).pagination(&#123;</span><br><span class="line">                        currentPage: page.pageno, &lt;!-- 当前所在页码 --&gt;</span><br><span class="line">                        totalPage: page.totalno,  &lt;!-- 总页码 --&gt;</span><br><span class="line">                        callback: queryPage		  &lt;!-- 回调函数 --&gt;</span><br><span class="line">                    &#125;);</span><br></pre></td></tr></table></figure>
-<p>刷新页面，生成分页条</p>
+<p><img src="/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.htm/viewProgress.JPG" alt="查看zookeeper进程"></p>
+<h2 id="3-进入zkCli-sh"><a href="#3-进入zkCli-sh" class="headerlink" title="3.进入zkCli.sh"></a>3.进入zkCli.sh</h2><p>依次输入以下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it abdc037e339e &#x2F;bin&#x2F;bash</span><br><span class="line">ls</span><br><span class="line">cd bin</span><br><span class="line">ls</span><br><span class="line">.&#x2F;zkCli.sh</span><br></pre></td></tr></table></figure>
+<p><img src="/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.htm/enter.JPG" alt="进入zkCli.sh"></p>
+<h2 id="4-服务注册之后ls-会出现services"><a href="#4-服务注册之后ls-会出现services" class="headerlink" title="4.服务注册之后ls /会出现services"></a>4.服务注册之后ls /会出现services</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls &#x2F;</span><br></pre></td></tr></table></figure>
+<p><img src="/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.htm/ls.JPG" alt="服务注册之后ls"></p>
+<h2 id="5-列出services所有服务"><a href="#5-列出services所有服务" class="headerlink" title="5.列出services所有服务"></a>5.列出services所有服务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls &#x2F;services</span><br></pre></td></tr></table></figure>
+<p><img src="/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.htm/services.JPG" alt="列出services所有服务"></p>
+<h2 id="6-退出zkCli-sh"><a href="#6-退出zkCli-sh" class="headerlink" title="6.退出zkCli.sh"></a>6.退出zkCli.sh</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure>
+<p>以上就是Centeos7 Docker 打开zookeeper查看入驻服务信息的流程</p>
 
     </div>
 
@@ -341,8 +346,9 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/jquery/" rel="tag"><i class="fa fa-tag"></i> jquery</a>
-              <a href="/tags/%E6%8F%92%E4%BB%B6/" rel="tag"><i class="fa fa-tag"></i> 插件</a>
+              <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+              <a href="/tags/Docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
+              <a href="/tags/Zookeeper/" rel="tag"><i class="fa fa-tag"></i> Zookeeper</a>
           </div>
 
         
@@ -351,12 +357,12 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5js%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" rel="prev" title="外部引入js文件不生效解决方法">
-      <i class="fa fa-chevron-left"></i> 外部引入js文件不生效解决方法
+    <a href="/Spring-Boot%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91OSS%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0.html" rel="prev" title="Spring Boot使用阿里云OSS实现图片上传">
+      <i class="fa fa-chevron-left"></i> Spring Boot使用阿里云OSS实现图片上传
     </a></div>
       <div class="post-nav-item">
-    <a href="/%E4%BD%BF%E7%94%A8js-jquery%E5%88%86%E5%88%AB%E8%8E%B7%E5%8F%96%E5%9C%B0%E5%9D%80%E6%A0%8F%E5%8F%82%E6%95%B0%E5%80%BC/" rel="next" title="使用js jquery分别获取地址栏参数值">
-      使用js jquery分别获取地址栏参数值 <i class="fa fa-chevron-right"></i>
+    <a href="/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98.html" rel="next" title="常见Java面试题(一)">
+      常见Java面试题(一) <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -418,6 +424,7 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-启动Docker"><span class="nav-number">1.</span> <span class="nav-text">1.启动Docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-查看zookeeper进程"><span class="nav-number">2.</span> <span class="nav-text">2.查看zookeeper进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-进入zkCli-sh"><span class="nav-number">3.</span> <span class="nav-text">3.进入zkCli.sh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-服务注册之后ls-会出现services"><span class="nav-number">4.</span> <span class="nav-text">4.服务注册之后ls &#x2F;会出现services</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-列出services所有服务"><span class="nav-number">5.</span> <span class="nav-text">5.列出services所有服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-退出zkCli-sh"><span class="nav-number">6.</span> <span class="nav-text">6.退出zkCli.sh</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -624,7 +631,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       notify     : false,
       appId      : 'PEHqSDkTPvJejkRHeWPqkre3-gzGzoHsz',
       appKey     : 'VWqxHQrDjg3CESeHi2yO2suc',
-      placeholder: "有请下一位追梦人",
+      placeholder: "来都来了，不撩一句嘛~，留言记得在上面留下【邮箱】，方便收到回复通知~",
       avatar     : 'mm',
       meta       : guest,
       pageSize   : '10' || 10,
