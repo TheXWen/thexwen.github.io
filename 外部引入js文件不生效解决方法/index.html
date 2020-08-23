@@ -30,27 +30,21 @@
     var CONFIG = {"hostname":"thexwen.github.io","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1.启动Docker1sudo systemctl start docker 2.查看zookeeper进程1docker ps">
+  <meta name="description" content="今天写项目用到js时，本来代码是直接写在&lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;&lt;&#x2F;script&gt;中的，但我想通过外部引入js文件。引入后发现js不生效，于是去找资料。大多数都是说加上window.οnlοad&#x3D;function(){}将代码放在里面就可以了，但是我试了一下好像不行。最后发现我们需要获取元素时，必须等到该元素被加载完">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Centeos7 Docker 打开zookeeper查看入驻服务信息">
-<meta property="og:url" content="https://thexwen.github.io/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.html">
+<meta property="og:title" content="外部引入js文件不生效解决方法">
+<meta property="og:url" content="https://thexwen.github.io/%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5js%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="xw&#39;s Blog">
-<meta property="og:description" content="1.启动Docker1sudo systemctl start docker 2.查看zookeeper进程1docker ps">
+<meta property="og:description" content="今天写项目用到js时，本来代码是直接写在&lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;&lt;&#x2F;script&gt;中的，但我想通过外部引入js文件。引入后发现js不生效，于是去找资料。大多数都是说加上window.οnlοad&#x3D;function(){}将代码放在里面就可以了，但是我试了一下好像不行。最后发现我们需要获取元素时，必须等到该元素被加载完">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://thexwen.github.io/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.htm/viewProgress.JPG">
-<meta property="og:image" content="https://thexwen.github.io/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.htm/enter.JPG">
-<meta property="og:image" content="https://thexwen.github.io/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.htm/ls.JPG">
-<meta property="og:image" content="https://thexwen.github.io/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.htm/services.JPG">
-<meta property="article:published_time" content="2020-04-12T09:47:15.000Z">
-<meta property="article:modified_time" content="2020-04-12T10:26:05.806Z">
+<meta property="article:published_time" content="2020-03-14T13:47:24.000Z">
+<meta property="article:modified_time" content="2020-05-07T10:30:12.349Z">
 <meta property="article:author" content="xw">
-<meta property="article:tag" content="Linux">
-<meta property="article:tag" content="Docker">
-<meta property="article:tag" content="Zookeeper">
+<meta property="article:tag" content="问题">
+<meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://thexwen.github.io/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.htm/viewProgress.JPG">
 
-<link rel="canonical" href="https://thexwen.github.io/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.html">
+<link rel="canonical" href="https://thexwen.github.io/%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5js%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
 
 
 <script id="page-configurations">
@@ -62,7 +56,7 @@
   };
 </script>
 
-  <title>Centeos7 Docker 打开zookeeper查看入驻服务信息 | xw's Blog</title>
+  <title>外部引入js文件不生效解决方法 | xw's Blog</title>
   
 
 
@@ -223,7 +217,7 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://thexwen.github.io/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.html">
+    <link itemprop="mainEntityOfPage" href="https://thexwen.github.io/%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5js%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -236,7 +230,7 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          Centeos7 Docker 打开zookeeper查看入驻服务信息
+          外部引入js文件不生效解决方法
         </h2>
 
         <div class="post-meta">
@@ -245,17 +239,23 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-04-12 17:47:15 / 修改时间：18:26:05" itemprop="dateCreated datePublished" datetime="2020-04-12T17:47:15+08:00">2020-04-12</time>
+              <time title="创建时间：2020-03-14 21:47:24" itemprop="dateCreated datePublished" datetime="2020-03-14T21:47:24+08:00">2020-03-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-07 18:30:12" itemprop="dateModified" datetime="2020-05-07T18:30:12+08:00">2020-05-07</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">分享</span></a>
+                  <a href="/categories/%E9%97%AE%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">问题</span></a>
                 </span>
             </span>
 
@@ -275,8 +275,8 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.html" itemprop="commentCount"></span>
+    <a title="valine" href="/%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5js%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/%E5%A4%96%E9%83%A8%E5%BC%95%E5%85%A5js%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -286,7 +286,7 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>273</span>
+              <span>359</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -305,19 +305,7 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-启动Docker"><a href="#1-启动Docker" class="headerlink" title="1.启动Docker"></a>1.启动Docker</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure>
-<h2 id="2-查看zookeeper进程"><a href="#2-查看zookeeper进程" class="headerlink" title="2.查看zookeeper进程"></a>2.查看zookeeper进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p><img src="/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.htm/viewProgress.JPG" alt="查看zookeeper进程"></p>
-<h2 id="3-进入zkCli-sh"><a href="#3-进入zkCli-sh" class="headerlink" title="3.进入zkCli.sh"></a>3.进入zkCli.sh</h2><p>依次输入以下命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it abdc037e339e &#x2F;bin&#x2F;bash</span><br><span class="line">ls</span><br><span class="line">cd bin</span><br><span class="line">ls</span><br><span class="line">.&#x2F;zkCli.sh</span><br></pre></td></tr></table></figure>
-<p><img src="/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.htm/enter.JPG" alt="进入zkCli.sh"></p>
-<h2 id="4-服务注册之后ls-会出现services"><a href="#4-服务注册之后ls-会出现services" class="headerlink" title="4.服务注册之后ls /会出现services"></a>4.服务注册之后ls /会出现services</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls &#x2F;</span><br></pre></td></tr></table></figure>
-<p><img src="/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.htm/ls.JPG" alt="服务注册之后ls"></p>
-<h2 id="5-列出services所有服务"><a href="#5-列出services所有服务" class="headerlink" title="5.列出services所有服务"></a>5.列出services所有服务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls &#x2F;services</span><br></pre></td></tr></table></figure>
-<p><img src="/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF.htm/services.JPG" alt="列出services所有服务"></p>
-<h2 id="6-退出zkCli-sh"><a href="#6-退出zkCli-sh" class="headerlink" title="6.退出zkCli.sh"></a>6.退出zkCli.sh</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure>
-<p>以上就是Centeos7 Docker 打开zookeeper查看入驻服务信息的流程</p>
+        <p>今天写项目用到js时，本来代码是直接写在<code>&lt;script type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</code>中的，但我想通过外部引入js文件。引入后发现js不生效，于是去找资料。大多数都是说加上<code>window.οnlοad=function(){}</code>将代码放在里面就可以了，但是我试了一下好像不行。最后发现我们需要获取元素时，必须等到该元素被加载完成后才能获取。我们可以把js代码放到该元素的后面，但是这样就会造成js在我们的body中不好管理。所有页面加载完毕后所有的元素已经加载完毕。一般获取元素做操作都要在页面加载完毕后操作。使用<code>$(function(){});</code>可以让页面加载完毕后执行里面的js。于是在js最头部加上<code>$(function(){});</code>，问题解决.</p>
 
     </div>
 
@@ -346,9 +334,8 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
-              <a href="/tags/Docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
-              <a href="/tags/Zookeeper/" rel="tag"><i class="fa fa-tag"></i> Zookeeper</a>
+              <a href="/tags/%E9%97%AE%E9%A2%98/" rel="tag"><i class="fa fa-tag"></i> 问题</a>
+              <a href="/tags/js/" rel="tag"><i class="fa fa-tag"></i> js</a>
           </div>
 
         
@@ -357,12 +344,12 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/Spring-Boot%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E4%BA%91OSS%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0.html" rel="prev" title="Spring Boot使用阿里云OSS实现图片上传">
-      <i class="fa fa-chevron-left"></i> Spring Boot使用阿里云OSS实现图片上传
+    <a href="/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%85%A8%E8%BF%87%E7%A8%8B/" rel="prev" title="我的博客搭建全过程(1)">
+      <i class="fa fa-chevron-left"></i> 我的博客搭建全过程(1)
     </a></div>
       <div class="post-nav-item">
-    <a href="/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98.html" rel="next" title="常见Java面试题(一)">
-      常见Java面试题(一) <i class="fa fa-chevron-right"></i>
+    <a href="/%E7%AE%80%E5%8D%95%E5%A5%BD%E7%94%A8%E7%9A%84jquery%E5%88%86%E9%A1%B5%E6%8F%92%E4%BB%B6/" rel="next" title="简单好用的jquery分页插件">
+      简单好用的jquery分页插件 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -424,7 +411,6 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-启动Docker"><span class="nav-number">1.</span> <span class="nav-text">1.启动Docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-查看zookeeper进程"><span class="nav-number">2.</span> <span class="nav-text">2.查看zookeeper进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-进入zkCli-sh"><span class="nav-number">3.</span> <span class="nav-text">3.进入zkCli.sh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-服务注册之后ls-会出现services"><span class="nav-number">4.</span> <span class="nav-text">4.服务注册之后ls &#x2F;会出现services</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-列出services所有服务"><span class="nav-number">5.</span> <span class="nav-text">5.列出services所有服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-退出zkCli-sh"><span class="nav-number">6.</span> <span class="nav-text">6.退出zkCli.sh</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
