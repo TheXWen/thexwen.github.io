@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://thexwen.github.io/JNDI%E6%95%B0%E6%8D%AE%E6%BA%90%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2020-10-09</lastmod>
+  </url>
+  <url>
     <loc>https://thexwen.github.io/Android%E4%BD%BF%E7%94%A8OkHttp%E5%8F%91%E9%80%81Get%E5%92%8CPost%E8%AF%B7%E6%B1%82/</loc>
     <lastmod>2020-06-30</lastmod>
   </url>

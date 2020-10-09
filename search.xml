@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>JNDI数据源配置</title>
+    <url>/JNDI%E6%95%B0%E6%8D%AE%E6%BA%90%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="1-修改对应tomcat下的conf文件夹中的context-xml"><a href="#1-修改对应tomcat下的conf文件夹中的context-xml" class="headerlink" title="1.修改对应tomcat下的conf文件夹中的context.xml"></a>1.修改对应tomcat下的conf文件夹中的context.xml</h2><p>在context.xml <context>节点中配置</context></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Resource</span> </span></span><br><span class="line">		&lt;!-- 需要连接的数据库驱动名(我这里是达梦数据库) --&gt;</span><br><span class="line">		driverClassName="dm.jdbc.driver.DmDriver" </span><br><span class="line">		<span class="comment">&lt;!-- 连接池最大数量 --&gt;</span></span><br><span class="line">		maxActive="100" </span><br><span class="line">		<span class="comment">&lt;!-- 连接池最大空闲 --&gt;</span> </span><br><span class="line">		maxIdle="200" </span><br><span class="line">		<span class="comment">&lt;!-- 获取连接最大等待时间 --&gt;</span></span><br><span class="line">		maxWait="5000" </span><br><span class="line">		<span class="comment">&lt;!-- 自己定义的名称 --&gt;</span></span><br><span class="line">		name="jeerdp_DS" </span><br><span class="line">		<span class="comment">&lt;!-- 数据库密码 --&gt;</span></span><br><span class="line">		password="123456789" </span><br><span class="line">		<span class="comment">&lt;!-- 数据库用户名 --&gt;</span></span><br><span class="line">		username="GZXT" </span><br><span class="line">		type="javax.sql.DataSource" </span><br><span class="line">		<span class="comment">&lt;!-- 要连接的库对应的url --&gt;</span></span><br><span class="line">		url="jdbc:dm://192.168.1.5/GZXT"/&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-修改项目中的web-xml文件"><a href="#2-修改项目中的web-xml文件" class="headerlink" title="2.修改项目中的web.xml文件"></a>2.修改项目中的web.xml文件</h2><p>在web.xml中添加配置</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resource-ref</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>jeerdp_DS<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">res-ref-name</span>&gt;</span>jeerdp_DS<span class="tag">&lt;/<span class="name">res-ref-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">res-type</span>&gt;</span>javax.sql.DataSource<span class="tag">&lt;/<span class="name">res-type</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">res-auth</span>&gt;</span>Container<span class="tag">&lt;/<span class="name">res-auth</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">res-sharing-scope</span>&gt;</span>Shareable<span class="tag">&lt;/<span class="name">res-sharing-scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resource-ref</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-添加数据库驱动文件"><a href="#3-添加数据库驱动文件" class="headerlink" title="3.添加数据库驱动文件"></a>3.添加数据库驱动文件</h2><p>通过数据源访问数据库，由于数据源由Tomcat维护，所以必须把对应的JDBC驱动复制到Tomcat的lib文件夹下<br><img src="/JNDI%E6%95%B0%E6%8D%AE%E6%BA%90%E9%85%8D%E7%BD%AE/drive.JPG" alt="JDBC驱动"></p>
+]]></content>
+      <categories>
+        <category>分享</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Android使用OkHttp发送Get和Post请求</title>
     <url>/Android%E4%BD%BF%E7%94%A8OkHttp%E5%8F%91%E9%80%81Get%E5%92%8CPost%E8%AF%B7%E6%B1%82/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="1-首先添加OkHttp依赖包"><a href="#1-首先添加OkHttp依赖包" class="headerlink" title="1.首先添加OkHttp依赖包"></a>1.首先添加OkHttp依赖包</h2><p>依赖包要根据自己的安卓版本选择，否则版本冲突会报错</p>
