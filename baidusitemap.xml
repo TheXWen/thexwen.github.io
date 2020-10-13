@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://thexwen.github.io/%E6%89%BE%E5%AE%9E%E4%B9%A0%E5%85%A8%E8%BF%87%E7%A8%8B/</loc>
+    <lastmod>2020-10-13</lastmod>
+  </url>
+  <url>
+    <loc>https://thexwen.github.io/%E6%8D%A2%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/</loc>
+    <lastmod>2020-10-13</lastmod>
+  </url>
+  <url>
     <loc>https://thexwen.github.io/JNDI%E6%95%B0%E6%8D%AE%E6%BA%90%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2020-10-09</lastmod>
   </url>
@@ -11,10 +19,6 @@
   <url>
     <loc>https://thexwen.github.io/Android%E5%BA%95%E9%83%A8%E5%BC%B9%E7%AA%97BottomSheetDialog%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2020-06-30</lastmod>
-  </url>
-  <url>
-    <loc>https://thexwen.github.io/%E6%89%BE%E5%AE%9E%E4%B9%A0%E5%85%A8%E8%BF%87%E7%A8%8B/</loc>
-    <lastmod>2020-06-04</lastmod>
   </url>
   <url>
     <loc>https://thexwen.github.io/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98-%E4%BA%8C/</loc>
