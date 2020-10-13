@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://thexwen.github.io/%E6%89%BE%E5%AE%9E%E4%B9%A0%E5%85%A8%E8%BF%87%E7%A8%8B/</loc>
+    <loc>https://thexwen.github.io/%E6%8D%A2%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/</loc>
     
     <lastmod>2020-10-13</lastmod>
     
   </url>
   
   <url>
-    <loc>https://thexwen.github.io/%E6%8D%A2%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/</loc>
+    <loc>https://thexwen.github.io/%E6%89%BE%E5%AE%9E%E4%B9%A0%E5%85%A8%E8%BF%87%E7%A8%8B/</loc>
     
     <lastmod>2020-10-13</lastmod>
     
@@ -165,13 +165,6 @@
   </url>
   
   <url>
-    <loc>https://thexwen.github.io/tags/%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2020-10-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://thexwen.github.io/tags/Linux/</loc>
     <lastmod>2020-10-13</lastmod>
     <changefreq>daily</changefreq>
@@ -193,6 +186,27 @@
   </url>
   
   <url>
+    <loc>https://thexwen.github.io/tags/%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2020-10-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thexwen.github.io/tags/OSS/</loc>
+    <lastmod>2020-10-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thexwen.github.io/tags/Spring-Boot/</loc>
+    <lastmod>2020-10-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://thexwen.github.io/tags/%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2020-10-13</lastmod>
     <changefreq>daily</changefreq>
@@ -200,14 +214,14 @@
   </url>
   
   <url>
-    <loc>https://thexwen.github.io/tags/js/</loc>
+    <loc>https://thexwen.github.io/tags/jquery/</loc>
     <lastmod>2020-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://thexwen.github.io/tags/jquery/</loc>
+    <loc>https://thexwen.github.io/tags/js/</loc>
     <lastmod>2020-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -249,6 +263,13 @@
   </url>
   
   <url>
+    <loc>https://thexwen.github.io/tags/%E6%8F%92%E4%BB%B6/</loc>
+    <lastmod>2020-10-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://thexwen.github.io/tags/API/</loc>
     <lastmod>2020-10-13</lastmod>
     <changefreq>daily</changefreq>
@@ -264,27 +285,6 @@
   
   <url>
     <loc>https://thexwen.github.io/tags/Gitee/</loc>
-    <lastmod>2020-10-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://thexwen.github.io/tags/OSS/</loc>
-    <lastmod>2020-10-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://thexwen.github.io/tags/Spring-Boot/</loc>
-    <lastmod>2020-10-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://thexwen.github.io/tags/%E6%8F%92%E4%BB%B6/</loc>
     <lastmod>2020-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
