@@ -30,32 +30,32 @@
     var CONFIG = {"hostname":"thexwen.github.io","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="make an all-out effort">
-<meta property="og:type" content="website">
-<meta property="og:title" content="xw&#39;s Blog">
-<meta property="og:url" content="https://thexwen.github.io/index.html">
+  <meta name="description" content="一句话概括就是@Configuration中所有带@Bean注解的方法都会被动态代理，因此调用该方法返回的都是同一个实例。 下面看看实现的细节。@Configuration注解：1234567@Target(ElementType.TYPE)@Retention(RetentionPolicy.RUNTIME)@Documented@Componentpublic @interface Confi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="@Component和@Configuration作为配置类的差别">
+<meta property="og:url" content="https://thexwen.github.io/Component%E5%92%8C-Configuration%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E7%B1%BB%E7%9A%84%E5%B7%AE%E5%88%AB/index.html">
 <meta property="og:site_name" content="xw&#39;s Blog">
-<meta property="og:description" content="make an all-out effort">
+<meta property="og:description" content="一句话概括就是@Configuration中所有带@Bean注解的方法都会被动态代理，因此调用该方法返回的都是同一个实例。 下面看看实现的细节。@Configuration注解：1234567@Target(ElementType.TYPE)@Retention(RetentionPolicy.RUNTIME)@Documented@Componentpublic @interface Confi">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-17T09:06:30.000Z">
+<meta property="article:modified_time" content="2020-11-05T03:12:13.972Z">
 <meta property="article:author" content="xw">
-<meta property="article:tag" content="java">
-<meta property="article:tag" content="问题">
-<meta property="article:tag" content="个人">
+<meta property="article:tag" content="记录">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://thexwen.github.io/">
+<link rel="canonical" href="https://thexwen.github.io/Component%E5%92%8C-Configuration%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E7%B1%BB%E7%9A%84%E5%B7%AE%E5%88%AB/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false
+    isHome : false,
+    isPost : true
   };
 </script>
 
-  <title>xw's Blog</title>
+  <title>@Component和@Configuration作为配置类的差别 | xw's Blog</title>
   
 
 
@@ -212,113 +212,10 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
             
 
   <div class="posts-expand">
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://thexwen.github.io/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E6%8D%A2%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="xw">
-      <meta itemprop="description" content="make an all-out effort">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="xw's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E6%8D%A2%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/" class="post-title-link" itemprop="url">第二次换工作的全过程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-03-06 12:55:29 / 修改时间：21:21:33" itemprop="dateCreated datePublished" datetime="2021-03-06T12:55:29+08:00">2021-03-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%AA%E4%BA%BA/" itemprop="url" rel="index"><span itemprop="name">个人</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E6%8D%A2%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E6%8D%A2%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
-          个人生活经历记录，不开放哦
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E6%8D%A2%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
   
   
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://thexwen.github.io/Component%E5%92%8C-Configuration%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E7%B1%BB%E7%9A%84%E5%B7%AE%E5%88%AB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -332,8 +229,7 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Component%E5%92%8C-Configuration%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E7%B1%BB%E7%9A%84%E5%B7%AE%E5%88%AB/" class="post-title-link" itemprop="url">@Component和@Configuration作为配置类的差别</a>
+          @Component和@Configuration作为配置类的差别
         </h2>
 
         <div class="post-meta">
@@ -363,6 +259,13 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
@@ -401,7 +304,7 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>一句话概括就是<code>@Configuration</code>中所有带<code>@Bean</code>注解的方法都会被动态代理，因此调用该方法返回的都是同一个实例。</p>
+        <p>一句话概括就是<code>@Configuration</code>中所有带<code>@Bean</code>注解的方法都会被动态代理，因此调用该方法返回的都是同一个实例。</p>
 <h4 id="下面看看实现的细节。"><a href="#下面看看实现的细节。" class="headerlink" title="下面看看实现的细节。"></a>下面看看实现的细节。</h4><h2 id="Configuration注解："><a href="#Configuration注解：" class="headerlink" title="@Configuration注解："></a><code>@Configuration</code>注解：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.TYPE)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Configuration &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>从定义来看,<code>@Configuration</code>注解本质上还是<code>@Component</code>，因此<code>&lt;context:component-scan/&gt;</code>或者 <code>@ComponentScan</code>都能处理<code>@Configuration</code>注解的类。</p>
 <p><code>@Configuration</code>标记的类必须符合下面的要求：</p>
@@ -452,874 +355,52 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBeanConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Country country;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Country <span class="title">country</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Country();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> UserInfo <span class="title">userInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> UserInfo(country);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这种方式可以保证使用的同一个<code>Country</code>实例。</p>
 
-      
     </div>
 
     
     
     
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://thexwen.github.io/%E6%8D%A2%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="xw">
-      <meta itemprop="description" content="make an all-out effort">
-    </span>
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="xw's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E6%8D%A2%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/" class="post-title-link" itemprop="url">换工作全过程</a>
-        </h2>
+    <div class="social-list">
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-10-09 15:49:20" itemprop="dateCreated datePublished" datetime="2020-10-09T15:49:20+08:00">2020-10-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
                 </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-13 16:39:26" itemprop="dateModified" datetime="2020-10-13T16:39:26+08:00">2020-10-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%AA%E4%BA%BA/" itemprop="url" rel="index"><span itemprop="name">个人</span></a>
-                </span>
-            </span>
 
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/%E6%8D%A2%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/%E6%8D%A2%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>758</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          个人生活经历记录，不开放哦
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E6%8D%A2%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/#more" rel="contents">
-                阅读全文 &raquo;
+                <span class="label">RSS</span>
               </a>
             </div>
-          <!--/noindex-->
-        
-      
     </div>
+  </div>
 
-    
-    
-    
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag"><i class="fa fa-tag"></i> 记录</a>
+          </div>
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://thexwen.github.io/JNDI%E6%95%B0%E6%8D%AE%E6%BA%90%E9%85%8D%E7%BD%AE/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="xw">
-      <meta itemprop="description" content="make an all-out effort">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="xw's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/JNDI%E6%95%B0%E6%8D%AE%E6%BA%90%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">JNDI数据源配置</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-10-09 15:00:14 / 修改时间：15:35:03" itemprop="dateCreated datePublished" datetime="2020-10-09T15:00:14+08:00">2020-10-09</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">分享</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/JNDI%E6%95%B0%E6%8D%AE%E6%BA%90%E9%85%8D%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/JNDI%E6%95%B0%E6%8D%AE%E6%BA%90%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>866</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-修改对应tomcat下的conf文件夹中的context-xml"><a href="#1-修改对应tomcat下的conf文件夹中的context-xml" class="headerlink" title="1.修改对应tomcat下的conf文件夹中的context.xml"></a>1.修改对应tomcat下的conf文件夹中的context.xml</h2><p>在context.xml <context>节点中配置</context></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Resource</span> </span></span><br><span class="line">		&lt;!-- 需要连接的数据库驱动名(我这里是达梦数据库) --&gt;</span><br><span class="line">		driverClassName="dm.jdbc.driver.DmDriver" </span><br><span class="line">		<span class="comment">&lt;!-- 连接池最大数量 --&gt;</span></span><br><span class="line">		maxActive="100" </span><br><span class="line">		<span class="comment">&lt;!-- 连接池最大空闲 --&gt;</span> </span><br><span class="line">		maxIdle="200" </span><br><span class="line">		<span class="comment">&lt;!-- 获取连接最大等待时间 --&gt;</span></span><br><span class="line">		maxWait="5000" </span><br><span class="line">		<span class="comment">&lt;!-- 自己定义的名称 --&gt;</span></span><br><span class="line">		name="jeerdp_DS" </span><br><span class="line">		<span class="comment">&lt;!-- 数据库密码 --&gt;</span></span><br><span class="line">		password="123456789" </span><br><span class="line">		<span class="comment">&lt;!-- 数据库用户名 --&gt;</span></span><br><span class="line">		username="GZXT" </span><br><span class="line">		type="javax.sql.DataSource" </span><br><span class="line">		<span class="comment">&lt;!-- 要连接的库对应的url --&gt;</span></span><br><span class="line">		url="jdbc:dm://192.168.1.5/GZXT"/&gt;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/JNDI%E6%95%B0%E6%8D%AE%E6%BA%90%E9%85%8D%E7%BD%AE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/%E6%8D%A2%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/" rel="prev" title="换工作全过程">
+      <i class="fa fa-chevron-left"></i> 换工作全过程
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E6%8D%A2%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/" rel="next" title="第二次换工作的全过程">
+      第二次换工作的全过程 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://thexwen.github.io/Android%E4%BD%BF%E7%94%A8OkHttp%E5%8F%91%E9%80%81Get%E5%92%8CPost%E8%AF%B7%E6%B1%82/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="xw">
-      <meta itemprop="description" content="make an all-out effort">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="xw's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Android%E4%BD%BF%E7%94%A8OkHttp%E5%8F%91%E9%80%81Get%E5%92%8CPost%E8%AF%B7%E6%B1%82/" class="post-title-link" itemprop="url">Android使用OkHttp发送Get和Post请求</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-06-30 14:39:33 / 修改时间：15:21:33" itemprop="dateCreated datePublished" datetime="2020-06-30T14:39:33+08:00">2020-06-30</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">分享</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
     
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/Android%E4%BD%BF%E7%94%A8OkHttp%E5%8F%91%E9%80%81Get%E5%92%8CPost%E8%AF%B7%E6%B1%82/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/Android%E4%BD%BF%E7%94%A8OkHttp%E5%8F%91%E9%80%81Get%E5%92%8CPost%E8%AF%B7%E6%B1%82/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-首先添加OkHttp依赖包"><a href="#1-首先添加OkHttp依赖包" class="headerlink" title="1.首先添加OkHttp依赖包"></a>1.首先添加OkHttp依赖包</h2><p>依赖包要根据自己的安卓版本选择，否则版本冲突会报错</p>
-<h2 id="2-在工具类HttpUtil中编写发送Get和Post请求方法"><a href="#2-在工具类HttpUtil中编写发送Get和Post请求方法" class="headerlink" title="2.在工具类HttpUtil中编写发送Get和Post请求方法"></a>2.在工具类HttpUtil中编写发送Get和Post请求方法</h2><p>在发送请求的时候可能会出现NetworkOnMainThreadException异常，解决方法有两个<br>1.简单暴力，强制使用，代码修改简单<br>在MainActivity文件的setContentView(R.layout.activity_main)下面加上如下代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (android.os.Build.VERSION.SDK_INT &gt; <span class="number">9</span>) &#123;</span><br><span class="line">    StrictMode.ThreadPolicy policy = <span class="keyword">new</span> StrictMode.ThreadPolicy.Builder().permitAll().build();</span><br><span class="line">    StrictMode.setThreadPolicy(policy);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/Android%E4%BD%BF%E7%94%A8OkHttp%E5%8F%91%E9%80%81Get%E5%92%8CPost%E8%AF%B7%E6%B1%82/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://thexwen.github.io/Android%E5%BA%95%E9%83%A8%E5%BC%B9%E7%AA%97BottomSheetDialog%E7%9A%84%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="xw">
-      <meta itemprop="description" content="make an all-out effort">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="xw's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Android%E5%BA%95%E9%83%A8%E5%BC%B9%E7%AA%97BottomSheetDialog%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Android底部弹窗BottomSheetDialog的使用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-23 09:32:45" itemprop="dateCreated datePublished" datetime="2020-06-23T09:32:45+08:00">2020-06-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-30 14:24:12" itemprop="dateModified" datetime="2020-06-30T14:24:12+08:00">2020-06-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">分享</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/Android%E5%BA%95%E9%83%A8%E5%BC%B9%E7%AA%97BottomSheetDialog%E7%9A%84%E4%BD%BF%E7%94%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/Android%E5%BA%95%E9%83%A8%E5%BC%B9%E7%AA%97BottomSheetDialog%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-首先写一个dialog展示的xml-menu-xml"><a href="#1-首先写一个dialog展示的xml-menu-xml" class="headerlink" title="1.首先写一个dialog展示的xml(menu.xml)"></a>1.首先写一个dialog展示的xml(menu.xml)</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span> <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">ListView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/menu"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ListView</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/Android%E5%BA%95%E9%83%A8%E5%BC%B9%E7%AA%97BottomSheetDialog%E7%9A%84%E4%BD%BF%E7%94%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://thexwen.github.io/%E6%89%BE%E5%AE%9E%E4%B9%A0%E5%85%A8%E8%BF%87%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="xw">
-      <meta itemprop="description" content="make an all-out effort">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="xw's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E6%89%BE%E5%AE%9E%E4%B9%A0%E5%85%A8%E8%BF%87%E7%A8%8B/" class="post-title-link" itemprop="url">找实习全过程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-04 15:06:30" itemprop="dateCreated datePublished" datetime="2020-06-04T15:06:30+08:00">2020-06-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-13 16:28:49" itemprop="dateModified" datetime="2020-10-13T16:28:49+08:00">2020-10-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%AA%E4%BA%BA/" itemprop="url" rel="index"><span itemprop="name">个人</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/%E6%89%BE%E5%AE%9E%E4%B9%A0%E5%85%A8%E8%BF%87%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/%E6%89%BE%E5%AE%9E%E4%B9%A0%E5%85%A8%E8%BF%87%E7%A8%8B/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          个人生活经历记录，不开放哦
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E6%89%BE%E5%AE%9E%E4%B9%A0%E5%85%A8%E8%BF%87%E7%A8%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://thexwen.github.io/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98-%E4%BA%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="xw">
-      <meta itemprop="description" content="make an all-out effort">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="xw's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98-%E4%BA%8C/" class="post-title-link" itemprop="url">常见Java面试题(二)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-14 10:23:20" itemprop="dateCreated datePublished" datetime="2020-05-14T10:23:20+08:00">2020-05-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-17 23:00:22" itemprop="dateModified" datetime="2020-05-17T23:00:22+08:00">2020-05-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">分享</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98-%E4%BA%8C/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98-%E4%BA%8C/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>6.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="get和post请求的区别"><a href="#get和post请求的区别" class="headerlink" title="get和post请求的区别"></a>get和post请求的区别</h2><p>1.Get请求提交的数据会在地址栏显示出来，而post请求不会再地址栏显示出来.<br>2.传输数据的大小,Get请求由于浏览器对地址长度的限制而导致传输的数据有限制。而POST请求不会因为地址长度限制而导致传输数据限制。<br>3、安全性,POST的安全性要比GET的安全性高。由于数据是会在地址中呈现，所以可以通过历史记录找到密码等关键信息。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98-%E4%BA%8C/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://thexwen.github.io/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="xw">
-      <meta itemprop="description" content="make an all-out effort">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="xw's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-title-link" itemprop="url">常见Java面试题(一)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-10 12:46:52" itemprop="dateCreated datePublished" datetime="2020-05-10T12:46:52+08:00">2020-05-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-14 11:22:05" itemprop="dateModified" datetime="2020-05-14T11:22:05+08:00">2020-05-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">分享</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>5.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="面向对象的特征有哪些"><a href="#面向对象的特征有哪些" class="headerlink" title="面向对象的特征有哪些"></a>面向对象的特征有哪些</h2><p>面向对象有四大基本特征:封装、抽象、继承、多态</p>
-<h3 id="抽象"><a href="#抽象" class="headerlink" title="抽象"></a>抽象</h3><p>抽象就是找出一些事物的相似和共性之处，然后将这些事物归为一个类。 就是把现实生活中的对象，抽象为类。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://thexwen.github.io/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="xw">
-      <meta itemprop="description" content="make an all-out effort">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="xw's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF/" class="post-title-link" itemprop="url">Centeos7 Docker 打开zookeeper查看入驻服务信息</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-04-12 17:47:15 / 修改时间：18:26:05" itemprop="dateCreated datePublished" datetime="2020-04-12T17:47:15+08:00">2020-04-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">分享</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>273</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-启动Docker"><a href="#1-启动Docker" class="headerlink" title="1.启动Docker"></a>1.启动Docker</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure>
-<h2 id="2-查看zookeeper进程"><a href="#2-查看zookeeper进程" class="headerlink" title="2.查看zookeeper进程"></a>2.查看zookeeper进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/Centeos7-Docker-%E6%89%93%E5%BC%80zookeeper%E6%9F%A5%E7%9C%8B%E5%85%A5%E9%A9%BB%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
   </article>
   
   
@@ -1327,15 +408,10 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
 
   </div>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -1382,6 +458,7 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#下面看看实现的细节。"><span class="nav-number">1.</span> <span class="nav-text">下面看看实现的细节。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Configuration注解："><span class="nav-number"></span> <span class="nav-text">@Configuration注解：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加载过程"><span class="nav-number"></span> <span class="nav-text">加载过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bean注解方法执行策略"><span class="nav-number"></span> <span class="nav-text">@Bean注解方法执行策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Component注意"><span class="nav-number"></span> <span class="nav-text">@Component注意</span></a></div>
       </div>
       <!--/noindex-->
 
