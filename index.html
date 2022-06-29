@@ -159,7 +159,7 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">22</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">24</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -216,6 +216,196 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://thexwen.github.io/Maven%E5%AF%BC%E5%85%A5%E6%9C%AC%E5%9C%B0jar%E5%8C%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="xw">
+      <meta itemprop="description" content="make an all-out effort">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xw's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Maven%E5%AF%BC%E5%85%A5%E6%9C%AC%E5%9C%B0jar%E5%8C%85/" class="post-title-link" itemprop="url">Maven导入本地jar包</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-06-29 15:24:48 / 修改时间：15:37:52" itemprop="dateCreated datePublished" datetime="2022-06-29T15:24:48+08:00">2022-06-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">分享</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/Maven%E5%AF%BC%E5%85%A5%E6%9C%AC%E5%9C%B0jar%E5%8C%85/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/Maven%E5%AF%BC%E5%85%A5%E6%9C%AC%E5%9C%B0jar%E5%8C%85/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-在本地maven仓库安装本地jar包"><a href="#1-在本地maven仓库安装本地jar包" class="headerlink" title="1.在本地maven仓库安装本地jar包"></a>1.在本地maven仓库安装本地jar包</h2><p>maven install可以把指定的文件安装到本地maven仓库（使用maven指令前需要安装apache maven）。有三种install方式：<br>1.指定jar包、groupid、artifactId和version，maven会自动生成相应的pom.xml文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn install:install-file -Dfile&#x3D;&lt;path-to-file&gt; -DgroupId&#x3D;&lt;group-id&gt; -DartifactId&#x3D;&lt;artifact-id&gt; -Dversion&#x3D;&lt;version&gt; -Dpackaging&#x3D;&lt;packaging&gt;</span><br></pre></td></tr></table></figure>
+<p>2.如果jar包是用maven打包生成的，可以直接指定jar包和pom.xml文件。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Maven%E5%AF%BC%E5%85%A5%E6%9C%AC%E5%9C%B0jar%E5%8C%85/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://thexwen.github.io/%E7%AC%AC%E5%9B%9B%E6%AC%A1%E6%8D%A2%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="xw">
+      <meta itemprop="description" content="make an all-out effort">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xw's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E7%AC%AC%E5%9B%9B%E6%AC%A1%E6%8D%A2%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/" class="post-title-link" itemprop="url">第四次换工作的全过程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-05-31 10:27:23" itemprop="dateCreated datePublished" datetime="2022-05-31T10:27:23+08:00">2022-05-31</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/%E7%AC%AC%E5%9B%9B%E6%AC%A1%E6%8D%A2%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/%E7%AC%AC%E5%9B%9B%E6%AC%A1%E6%8D%A2%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>0</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://thexwen.github.io/%E7%AC%AC%E4%B8%89%E6%AC%A1%E6%8D%A2%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%85%A8%E8%BF%87%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -239,10 +429,16 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-02-18 21:41:19 / 修改时间：23:24:05" itemprop="dateCreated datePublished" datetime="2022-02-18T21:41:19+08:00">2022-02-18</time>
+              <time title="创建时间：2022-02-18 21:41:19" itemprop="dateCreated datePublished" datetime="2022-02-18T21:41:19+08:00">2022-02-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-31 10:21:39" itemprop="dateModified" datetime="2022-05-31T10:21:39+08:00">2022-05-31</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -435,10 +631,16 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-03-06 12:55:29 / 修改时间：21:26:39" itemprop="dateCreated datePublished" datetime="2021-03-06T12:55:29+08:00">2021-03-06</time>
+              <time title="创建时间：2021-03-06 12:55:29" itemprop="dateCreated datePublished" datetime="2021-03-06T12:55:29+08:00">2021-03-06</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-29 15:26:37" itemprop="dateModified" datetime="2022-06-29T15:26:37+08:00">2022-06-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -546,7 +748,7 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-05 11:12:13" itemprop="dateModified" datetime="2020-11-05T11:12:13+08:00">2020-11-05</time>
+                <time title="修改时间：2022-02-18 23:50:33" itemprop="dateModified" datetime="2022-02-18T23:50:33+08:00">2022-02-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -598,56 +800,15 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
 
       
           <p>一句话概括就是<code>@Configuration</code>中所有带<code>@Bean</code>注解的方法都会被动态代理，因此调用该方法返回的都是同一个实例。</p>
-<h4 id="下面看看实现的细节。"><a href="#下面看看实现的细节。" class="headerlink" title="下面看看实现的细节。"></a>下面看看实现的细节。</h4><h2 id="Configuration注解："><a href="#Configuration注解：" class="headerlink" title="@Configuration注解："></a><code>@Configuration</code>注解：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.TYPE)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Configuration &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>从定义来看,<code>@Configuration</code>注解本质上还是<code>@Component</code>，因此<code>&lt;context:component-scan/&gt;</code>或者 <code>@ComponentScan</code>都能处理<code>@Configuration</code>注解的类。</p>
-<p><code>@Configuration</code>标记的类必须符合下面的要求：</p>
-<ul>
-<li>配置类必须以类的形式提供（不能是工厂方法返回的实例），允许通过生成子类在运行时增强（cglib 动态代理）。</li>
-<li>配置类不能是<code>final</code>类（没法动态代理）。</li>
-<li>配置注解通常为了通过<code>@Bean</code>注解生成 Spring 容器管理的类，</li>
-<li>配置类必须是非本地的（即不能在方法中声明，不能是 private）。</li>
-<li>任何嵌套配置类都必须声明为<code>static</code>。</li>
-<li><code>@Bean</code>方法可能不会反过来创建进一步的配置类（也就是返回的 bean 如果带有<code>@Configuration</code>，也不会被特殊处理，只会作为普通的 bean ）。<h2 id="加载过程"><a href="#加载过程" class="headerlink" title="加载过程"></a>加载过程</h2>Spring 容器在启动时，会加载默认的一些<code>PostPRocessor</code>，其中就有<code>ConfigurationClassPostProcessor</code>，这个后置处理程序专门处理带有<code>@Configuration</code>注解的类，这个程序会在<code>bean</code>定义加载完成后，在<code>bean</code>初始化前进行处理。主要处理的过程就是使用<code>cglib</code>动态代理增强类，而且是对其中带有<code>@Bean</code>注解的方法进行处理。</li>
-</ul>
-<p>在<code>ConfigurationClassPostProcessor</code>中的<code>postProcessBeanFactory</code>方法中调用了下面的方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Post-processes a BeanFactory in search of Configuration class BeanDefinitions;</span></span><br><span class="line"><span class="comment"> * any candidates are then enhanced by a &#123;<span class="doctag">@link</span> ConfigurationClassEnhancer&#125;.</span></span><br><span class="line"><span class="comment"> * Candidate status is determined by BeanDefinition attribute metadata.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@see</span> ConfigurationClassEnhancer</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">enhanceConfigurationClasses</span><span class="params">(ConfigurableListableBeanFactory beanFactory)</span> </span>&#123;</span><br><span class="line">    Map&lt;String, AbstractBeanDefinition&gt; configBeanDefs = <span class="keyword">new</span> LinkedHashMap&lt;String, AbstractBeanDefinition&gt;();</span><br><span class="line">    <span class="keyword">for</span> (String beanName : beanFactory.getBeanDefinitionNames()) &#123;</span><br><span class="line">        BeanDefinition beanDef = beanFactory.getBeanDefinition(beanName);</span><br><span class="line">        <span class="keyword">if</span> (ConfigurationClassUtils.isFullConfigurationClass(beanDef)) &#123;</span><br><span class="line">            <span class="comment">//省略部分代码</span></span><br><span class="line">            configBeanDefs.put(beanName, (AbstractBeanDefinition) beanDef);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (configBeanDefs.isEmpty()) &#123;</span><br><span class="line">        <span class="comment">// nothing to enhance -&gt; return immediately</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ConfigurationClassEnhancer enhancer = <span class="keyword">new</span> ConfigurationClassEnhancer();</span><br><span class="line">    <span class="keyword">for</span> (Map.Entry&lt;String, AbstractBeanDefinition&gt; entry : configBeanDefs.entrySet()) &#123;</span><br><span class="line">        AbstractBeanDefinition beanDef = entry.getValue();</span><br><span class="line">        <span class="comment">// If a @Configuration class gets proxied, always proxy the target class</span></span><br><span class="line">        beanDef.setAttribute(AutoProxyUtils.PRESERVE_TARGET_CLASS_ATTRIBUTE, Boolean.TRUE);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// Set enhanced subclass of the user-specified bean class</span></span><br><span class="line">            Class&lt;?&gt; configClass = beanDef.resolveBeanClass(<span class="keyword">this</span>.beanClassLoader);</span><br><span class="line">            Class&lt;?&gt; enhancedClass = enhancer.enhance(configClass, <span class="keyword">this</span>.beanClassLoader);</span><br><span class="line">            <span class="keyword">if</span> (configClass != enhancedClass) &#123;</span><br><span class="line">                <span class="comment">//省略部分代码</span></span><br><span class="line">                beanDef.setBeanClass(enhancedClass);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (Throwable ex) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(</span><br><span class="line">              <span class="string">"Cannot load configuration class: "</span> + beanDef.getBeanClassName(), ex);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在方法的第一次循环中，查找到所有带有<code>@Configuration</code>注解的 bean 定义，然后在第二个 for 循环中，通过下面的方法对类进行增强:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class&lt;?&gt; enhancedClass = enhancer.enhance(configClass, <span class="keyword">this</span>.beanClassLoader);</span><br></pre></td></tr></table></figure>
-
-<p>然后使用增强后的类替换了原有的<code>beanClass</code>：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">beanDef.setBeanClass(enhancedClass);</span><br></pre></td></tr></table></figure>
-
-<p>所以到此时，所有带有<code>@Configuration</code>注解的 bean 都已经变成了增强的类。<br>下面关注上面的<code>enhance</code>增强方法，多跟一步就能看到下面的方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Creates a new CGLIB &#123;<span class="doctag">@link</span> Enhancer&#125; instance.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> Enhancer <span class="title">newEnhancer</span><span class="params">(Class&lt;?&gt; superclass, ClassLoader classLoader)</span> </span>&#123;</span><br><span class="line">    Enhancer enhancer = <span class="keyword">new</span> Enhancer();</span><br><span class="line">    enhancer.setSuperclass(superclass);</span><br><span class="line">    enhancer.setInterfaces(<span class="keyword">new</span> Class&lt;?&gt;[] &#123;EnhancedConfiguration<span class="class">.<span class="keyword">class</span>&#125;)</span>;</span><br><span class="line">    enhancer.setUseFactory(<span class="keyword">false</span>);</span><br><span class="line">    enhancer.setNamingPolicy(SpringNamingPolicy.INSTANCE);</span><br><span class="line">    enhancer.setStrategy(<span class="keyword">new</span> BeanFactoryAwareGeneratorStrategy(classLoader));</span><br><span class="line">    enhancer.setCallbackFilter(CALLBACK_FILTER);</span><br><span class="line">    enhancer.setCallbackTypes(CALLBACK_FILTER.getCallbackTypes());</span><br><span class="line">    <span class="keyword">return</span> enhancer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>通过 cglib 代理的类在调用方法时，会通过<code>CallbackFilter</code>调用，这里的<code>CALLBACK_FILTER</code>如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// The callbacks to use. Note that these callbacks must be stateless.</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Callback[] CALLBACKS = <span class="keyword">new</span> Callback[] &#123;</span><br><span class="line">        <span class="keyword">new</span> BeanMethodInterceptor(),</span><br><span class="line">        <span class="keyword">new</span> BeanFactoryAwareMethodInterceptor(),</span><br><span class="line">        NoOp.INSTANCE</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> ConditionalCallbackFilter CALLBACK_FILTER = </span><br><span class="line">        <span class="keyword">new</span> ConditionalCallbackFilter(CALLBACKS);</span><br></pre></td></tr></table></figure>
-
-<p>其中<code>BeanMethodInterceptor</code>匹配方法如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isMatch</span><span class="params">(Method candidateMethod)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> BeanAnnotationHelper.isBeanAnnotated(candidateMethod);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//BeanAnnotationHelper</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isBeanAnnotated</span><span class="params">(Method method)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> AnnotatedElementUtils.hasAnnotation(method, Bean<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>也就是当方法有<code>@Bean</code>注解的时候，就会执行这个回调方法。<br>另一个<code>BeanFactoryAwareMethodInterceptor</code>匹配的方法如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isMatch</span><span class="params">(Method candidateMethod)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (candidateMethod.getName().equals(<span class="string">"setBeanFactory"</span>) &amp;&amp;</span><br><span class="line">            candidateMethod.getParameterTypes().length == <span class="number">1</span> &amp;&amp;</span><br><span class="line">            BeanFactory<span class="class">.<span class="keyword">class</span> </span>== candidateMethod.getParameterTypes()[<span class="number">0</span>] &amp;&amp;</span><br><span class="line">            BeanFactoryAware<span class="class">.<span class="keyword">class</span>.<span class="title">isAssignableFrom</span>(<span class="title">candidateMethod</span>.<span class="title">getDeclaringClass</span>()))</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当前类还需要实现<code>BeanFactoryAware</code>接口，上面的<code>isMatch</code>就是匹配的这个接口的方法。</p>
-<h3 id="Bean注解方法执行策略"><a href="#Bean注解方法执行策略" class="headerlink" title="@Bean注解方法执行策略"></a><code>@Bean</code>注解方法执行策略</h3><p>先给一个简单的示例代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBeanConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Country <span class="title">country</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Country();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> UserInfo <span class="title">userInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> UserInfo(country());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>相信大多数人第一次看到上面 userInfo() 中调用 country() 时，会认为这里的 Country 和上面 @Bean 方法返回的 Country 可能不是同一个对象，因此可能会通过下面的方式来替代这种方式：<br>@Autowired<br>private Country country;<br>实际上不需要这么做（后面会给出需要这样做的场景），直接调用 country() 方法返回的是同一个实例。<br>下面看调用 country() 和 userInfo() 方法时的逻辑。</p>
-<p>现在我们已经知道<code>@Configuration</code>注解的类是如何被处理的了，现在关注上面的<code>BeanMethodInterceptor</code>，看看带有<code>@Bean</code>注解的方法执行的逻辑。下面分解来看<code>intercept</code>方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//首先通过反射从增强的 Configuration 注解类中获取 beanFactory</span></span><br><span class="line">ConfigurableBeanFactory beanFactory = getBeanFactory(enhancedConfigInstance);</span><br><span class="line"></span><br><span class="line"><span class="comment">//然后通过方法获取 beanName，默认为方法名，可以通过 @Bean 注解指定</span></span><br><span class="line">String beanName = BeanAnnotationHelper.determineBeanNameFor(beanMethod);</span><br><span class="line"></span><br><span class="line"><span class="comment">//确定这个 bean 是否指定了代理的范围</span></span><br><span class="line"><span class="comment">//默认下面 if 条件 false 不会执行</span></span><br><span class="line">Scope scope = AnnotatedElementUtils.findMergedAnnotation(beanMethod, Scope<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"><span class="keyword">if</span> (scope != <span class="keyword">null</span> &amp;&amp; scope.proxyMode() != ScopedProxyMode.NO) &#123;</span><br><span class="line">    String scopedBeanName = ScopedProxyCreator.getTargetBeanName(beanName);</span><br><span class="line">    <span class="keyword">if</span> (beanFactory.isCurrentlyInCreation(scopedBeanName)) &#123;</span><br><span class="line">        beanName = scopedBeanName;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//中间跳过一段 Factorybean 相关代码</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//判断当前执行的方法是否为正在执行的 @Bean 方法</span></span><br><span class="line"><span class="comment">//因为存在在 userInfo() 方法中调用 country() 方法</span></span><br><span class="line"><span class="comment">//如果 country() 也有 @Bean 注解，那么这个返回值就是 false.</span></span><br><span class="line"><span class="keyword">if</span> (isCurrentlyInvokedFactoryMethod(beanMethod)) &#123;</span><br><span class="line">    <span class="comment">// 判断返回值类型，如果是 BeanFactoryPostProcessor 就写警告日志</span></span><br><span class="line">    <span class="keyword">if</span> (logger.isWarnEnabled() &amp;&amp;</span><br><span class="line">            BeanFactoryPostProcessor<span class="class">.<span class="keyword">class</span>.<span class="title">isAssignableFrom</span>(<span class="title">beanMethod</span>.<span class="title">getReturnType</span>())) </span>&#123;</span><br><span class="line">        logger.warn(String.format(</span><br><span class="line">            <span class="string">"@Bean method %s.%s is non-static and returns an object "</span> +</span><br><span class="line">            <span class="string">"assignable to Spring's BeanFactoryPostProcessor interface. This will "</span> +</span><br><span class="line">            <span class="string">"result in a failure to process annotations such as @Autowired, "</span> +</span><br><span class="line">            <span class="string">"@Resource and @PostConstruct within the method's declaring "</span> +</span><br><span class="line">            <span class="string">"@Configuration class. Add the 'static' modifier to this method to avoid "</span> +</span><br><span class="line">            <span class="string">"these container lifecycle issues; see @Bean javadoc for complete details."</span>,</span><br><span class="line">            beanMethod.getDeclaringClass().getSimpleName(), beanMethod.getName()));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//直接调用原方法创建 bean</span></span><br><span class="line">    <span class="keyword">return</span> cglibMethodProxy.invokeSuper(enhancedConfigInstance, beanMethodArgs);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//如果不满足上面 if，也就是在 userInfo() 中调用的 country() 方法</span></span><br><span class="line"><span class="keyword">return</span> obtainBeanInstanceFromFactory(beanMethod, beanMethodArgs, beanFactory, beanName);</span><br></pre></td></tr></table></figure>
-
-<p>关于<code>isCurrentlyInvokedFactoryMethod</code>方法<br>可以参考<code>SimpleInstantiationStrategy</code>中的<code>instantiate</code>方法，这里先设置的调用方法：</p>
-<p>currentlyInvokedFactoryMethod.set(factoryMethod);<br>return factoryMethod.invoke(factoryBean, args);</p>
-<p>而通过方法内部直接调用<code>country()</code>方法时，不走上面的逻辑，直接进的代理方法，也就是当前的<code>intercept</code>方法，因此当前的工厂方法和执行的方法就不相同了。</p>
-<p><code>obtainBeanInstanceFromFactory</code>方法比较简单，就是通过<code>beanFactory.getBean</code>获取<code>Country</code>，如果已经创建了就会直接返回，如果没有执行过，就会通过<code>invokeSuper</code>首次执行。</p>
-<p>因此我们在<code>@Configuration</code>注解定义的 bean 方法中可以直接调用方法，不需要<code>@Autowired</code>注入后使用。</p>
-<h3 id="Component注意"><a href="#Component注意" class="headerlink" title="@Component注意"></a><code>@Component</code>注意</h3><p><code>@Component</code>注解并没有通过 cglib 来代理<code>@Bean</code>方法的调用，因此像下面这样配置时，就是两个不同的 country。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBeanConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Country <span class="title">country</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Country();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> UserInfo <span class="title">userInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> UserInfo(country());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>有些特殊情况下，我们不希望<code>MyBeanConfig</code>被代理（代理后会变成<code>WebMvcConfig$$EnhancerBySpringCGLIB$$8bef3235293</code>）时，就得用<code>@Component</code>，这种情况下，上面的写法就需要改成下面这样：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBeanConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Country country;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Country <span class="title">country</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Country();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> UserInfo <span class="title">userInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> UserInfo(country);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这种方式可以保证使用的同一个<code>Country</code>实例。</p>
-
+<h4 id="下面看看实现的细节。"><a href="#下面看看实现的细节。" class="headerlink" title="下面看看实现的细节。"></a>下面看看实现的细节。</h4>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Component%E5%92%8C-Configuration%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E7%B1%BB%E7%9A%84%E5%B7%AE%E5%88%AB/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1089,224 +1250,6 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://thexwen.github.io/%E6%89%BE%E5%AE%9E%E4%B9%A0%E5%85%A8%E8%BF%87%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="xw">
-      <meta itemprop="description" content="make an all-out effort">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="xw's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E6%89%BE%E5%AE%9E%E4%B9%A0%E5%85%A8%E8%BF%87%E7%A8%8B/" class="post-title-link" itemprop="url">找实习全过程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-04 15:06:30" itemprop="dateCreated datePublished" datetime="2020-06-04T15:06:30+08:00">2020-06-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-13 16:28:49" itemprop="dateModified" datetime="2020-10-13T16:28:49+08:00">2020-10-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%B8%AA%E4%BA%BA/" itemprop="url" rel="index"><span itemprop="name">个人</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/%E6%89%BE%E5%AE%9E%E4%B9%A0%E5%85%A8%E8%BF%87%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/%E6%89%BE%E5%AE%9E%E4%B9%A0%E5%85%A8%E8%BF%87%E7%A8%8B/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          个人生活经历记录，不开放哦
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E6%89%BE%E5%AE%9E%E4%B9%A0%E5%85%A8%E8%BF%87%E7%A8%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://thexwen.github.io/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98-%E4%BA%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="xw">
-      <meta itemprop="description" content="make an all-out effort">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="xw's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98-%E4%BA%8C/" class="post-title-link" itemprop="url">常见Java面试题(二)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-14 10:23:20" itemprop="dateCreated datePublished" datetime="2020-05-14T10:23:20+08:00">2020-05-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-17 23:00:22" itemprop="dateModified" datetime="2020-05-17T23:00:22+08:00">2020-05-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">分享</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98-%E4%BA%8C/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98-%E4%BA%8C/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>6.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="get和post请求的区别"><a href="#get和post请求的区别" class="headerlink" title="get和post请求的区别"></a>get和post请求的区别</h2><p>1.Get请求提交的数据会在地址栏显示出来，而post请求不会再地址栏显示出来.<br>2.传输数据的大小,Get请求由于浏览器对地址长度的限制而导致传输的数据有限制。而POST请求不会因为地址长度限制而导致传输数据限制。<br>3、安全性,POST的安全性要比GET的安全性高。由于数据是会在地址中呈现，所以可以通过历史记录找到密码等关键信息。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/%E5%B8%B8%E8%A7%81Java%E9%9D%A2%E8%AF%95%E9%A2%98-%E4%BA%8C/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1379,7 +1322,7 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1450,13 +1393,13 @@ WIDGET = {FID: 'ZbqZGJGGWc'}
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">45k</span>
+    <span title="站点总字数">47k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">41 分钟</span>
+    <span title="站点阅读时长">42 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
   </div>
